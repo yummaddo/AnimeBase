@@ -1,0 +1,1683 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ru" lang="ru" prefix="og: http://ogp.me/ns#">
+<head>
+    <link rel="canonical" href="https://v2.vost.pw/"/>
+<!-- Yandex.RTB -->
+<script>window.yaContextCb=window.yaContextCb||[]</script>
+<script src="https://yandex.ru/ads/system/context.js" async></script>
+    
+<!-- Yandex.Metrika counter -->
+<script type="text/javascript" >
+   (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+   m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+   (window, document, "script", "https://cdn.jsdelivr.net/npm/yandex-metrica-watch/tag.js", "ym");
+
+   ym(22942090, "init", {
+        clickmap:true,
+        trackLinks:true,
+        accurateTrackBounce:true
+   });
+</script>
+<noscript><div><img src="https://mc.yandex.ru/watch/22942090" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<!-- /Yandex.Metrika counter -->
+<meta name="yandex-verification" content="cc4a7a33c0630d6a" />
+<link rel="icon" href="/favicon.ico" type="image/x-icon">
+<meta name="yandex-tableau-widget" content="logo=/logo.png, color=#ffffff" />
+<link rel="icon" href="/favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<script src="/playerjs2.js" type="text/javascript"></script>
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>База №1 по просмотру аниме онлайн бесплатно</title>
+<meta name="description" content="Оригинальный сайт animevost (анимевост), на котором вы можете смотреть бесперебойно аниме онлайн (anime online) в хорошем качестве, без рекламы, стабильно и без задержке. Самая быстрая озвучка новых серий аниме через час после выхода в японии. Огромный каталог anime доступен как для online просмотра, так и для скачивание. Проект анимевост (animevost)." />
+<meta name="keywords" content="аниме, онлайн, anime, online, бесплатно, без регистрации, русская озвучка" />
+<meta name="generator" content="DataLife Engine (https://dle-news.ru)" />
+<link rel="search" type="application/opensearchdescription+xml" href="https://animevost.org/engine/opensearch.php" title="База №1 по просмотру аниме онлайн бесплатно" />
+<link rel="alternate" type="application/rss+xml" title="База №1 по просмотру аниме онлайн бесплатно" href="https://animevost.org/rss.xml" />
+<script src="/engine/classes/js/jquery.js"></script>
+<script src="/engine/classes/js/jqueryui.js"></script>
+<script src="/engine/classes/js/dle_js.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js"></script>
+<script src="/engine/editor/scripts/webfont.js"></script>
+<link media="screen" href="/engine/editor/css/default.css" type="text/css" rel="stylesheet" />  
+<link rel="stylesheet" type="text/css" href="/templates/AnimeVostNext5/style/jquery.jscrollpane.css" media="all" />
+<link media="screen" href="/templates/AnimeVostNext5/style/magnific-popup.css" type="text/css" rel="stylesheet" />
+<link media="screen" href="/templates/AnimeVostNext5/style/drek_v3.css" type="text/css" rel="stylesheet" /> 
+    
+
+<script>
+function ajax(id,snum) {
+	var num=snum -2;
+	if (num<0) {num=0}
+	$('.kactive').removeClass('kactive');
+	$('#scroll').scrollTo("#" +num , 500, {axis:'x'});
+	$("#" +snum).addClass('kactive');
+	$.cookie(window.location.pathname,snum, { expires: 365 });
+        jQuery.ajax({        
+	    crossDomain: true,
+            url:     "/frame.php?play=" + id, 
+            type:     "GET", 
+            dataType: "html", 
+            success: function(response){ 
+                $('#player').html(response);
+             }
+        });
+   }
+
+function ajax2(id,snum) {
+	var num=snum -2;
+	if (num<0) {num=0}
+	$('.active').removeClass('active');
+	$('#scrolltwo').scrollTo("#p" +num , 500, {axis:'x'});
+	$("#p" +snum).addClass('active');
+	$.cookie(window.location.pathname,snum, { expires: 365 });
+        jQuery.ajax({        
+	    crossDomain: true,
+            url:     "/frame2.php?play=" + id, 
+            type:     "GET", 
+            dataType: "html", 
+            success: function(response,player){ 
+                $('#player2').html(response);
+             }
+        });
+   }
+
+
+//cookie---------------------------------------------------------------------------------------------------
+(function (factory) {
+	if (typeof define === 'function' && define.amd) {
+		define(['jquery'], factory);
+	} else if (typeof exports === 'object') {
+		factory(require('jquery'));
+	} else {
+		// Browser globals
+		factory(jQuery);
+	}
+}(function ($) {
+
+	var pluses = /\+/g;
+
+	function encode(s) {
+		return s;
+	}
+
+	function decode(s) {
+		return s;
+	}
+
+	function stringifyCookieValue(value) {
+		return encode(config.json ? JSON.stringify(value) : String(value));
+	}
+
+	function parseCookieValue(s) {
+		if (s.indexOf('"') === 0) {
+			// This is a quoted cookie as according to RFC2068, unescape...
+			s = s.slice(1, -1).replace(/\\"/g, '"').replace(/\\\\/g, '\\');
+		}
+
+		try {
+			// Replace server-side written pluses with spaces.
+			// If we can't decode the cookie, ignore it, it's unusable.
+			// If we can't parse the cookie, ignore it, it's unusable.
+			s = decodeURIComponent(s.replace(pluses, ' '));
+			return config.json ? JSON.parse(s) : s;
+		} catch(e) {}
+	}
+
+	function read(s, converter) {
+		var value = config.raw ? s : parseCookieValue(s);
+		return $.isFunction(converter) ? converter(value) : value;
+	}
+
+	var config = $.cookie = function (key, value, options) {
+
+		// Write
+
+		if (value !== undefined && !$.isFunction(value)) {
+			options = $.extend({}, config.defaults, options);
+
+			if (typeof options.expires === 'number') {
+				var days = options.expires, t = options.expires = new Date();
+				t.setTime(+t + days * 864e+5);
+			}
+
+			return (document.cookie = [
+				encode(key), '=', stringifyCookieValue(value),
+				options.expires ? '; expires=' + options.expires.toUTCString() : '', // use expires attribute, max-age is not supported by IE
+				options.path    ? '; path=' + options.path : '',
+				options.domain  ? '; domain=' + options.domain : '',
+				options.secure  ? '; secure' : ''
+			].join(''));
+		}
+
+		// Read
+
+		var result = key ? undefined : {};
+		var cookies = document.cookie ? document.cookie.split('; ') : [];
+
+		for (var i = 0, l = cookies.length; i < l; i++) {
+			var parts = cookies[i].split('=');
+			var name = decode(parts.shift());
+			var cookie = parts.join('=');
+
+			if (key && key === name) {
+				// If second argument (value) is a function it's a converter...
+				result = read(cookie, value);
+				break;
+			}
+
+			// Prevent storing a cookie that we couldn't decode.
+			if (!key && (cookie = read(cookie)) !== undefined) {
+				result[name] = cookie;
+			}
+		}
+
+		return result;
+	};
+
+	config.defaults = {};
+
+	$.removeCookie = function (key, options) {
+		if ($.cookie(key) === undefined) {
+			return false;
+		}
+
+		// Must not alter options, thus extending a fresh object...
+		$.cookie(key, '', $.extend({}, options, { expires: -1 }));
+		return !$.cookie(key);
+	};
+
+}));
+</script>
+<script src="/templates/AnimeVostNext5/js/jquery.magnific-popup.js"></script>
+<script  src="/templates/AnimeVostNext5/js/scroll.js"></script>
+<link media="screen" href="/templates/AnimeVostNext5/style/styles121.css?v5" type="text/css" rel="stylesheet"/>
+    
+  
+<link media="screen" href="/templates/AnimeVostNext5/style/styleOpisania.css" type="text/css" rel="stylesheet" />
+<link media="screen" href="/templates/AnimeVostNext5/style/engine.css" type="text/css" rel="stylesheet" />
+<link href="/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+<script src="/templates/AnimeVostNext5/js/share42.js?v3"></script>
+<script src="/templates/AnimeVostNext5/js/bookmark.js?v3"></script>
+<script src="/templates/AnimeVostNext5/js/donate.js?v=3"></script>
+<script src="/baner_sparta.js?v3"></script>
+<script src="/openapi.js?96"></script>
+
+    
+<link rel="stylesheet" type="text/css"  href="/templates/AnimeVostNext5/style/player.css?v3"/>
+
+    
+    <script>
+function showBlock() {
+$(function(){
+    $('#fastPunkt').dialog({
+        autoOpen: true,
+        show: 'fade',
+        hide: 'fade',
+        width: 305,
+        height: 83,
+    });
+});
+}
+</script>
+<style>
+table {
+width:100%;
+border:none;
+}
+</style>
+    
+  
+</head>
+
+<body>
+
+<script>
+<!--
+var dle_root       = '/';
+var dle_admin      = '';
+var dle_login_hash = '';
+var dle_group      = 5;
+var dle_skin       = 'AnimeVostNext5';
+var dle_wysiwyg    = '0';
+var quick_wysiwyg  = '0';
+var dle_act_lang   = ["Да", "Нет", "Ввод", "Отмена", "Сохранить", "Удалить", "Загрузка. Пожалуйста, подождите..."];
+var menu_short     = 'Быстрое редактирование';
+var menu_full      = 'Полное редактирование';
+var menu_profile   = 'Просмотр профиля';
+var menu_send      = 'Отправить сообщение';
+var menu_uedit     = 'Админцентр';
+var dle_info       = 'Информация';
+var dle_confirm    = 'Подтверждение';
+var dle_prompt     = 'Ввод информации';
+var dle_req_field  = 'Заполните все необходимые поля';
+var dle_del_agree  = 'Вы действительно хотите удалить? Данное действие невозможно будет отменить';
+var dle_spam_agree = 'Вы действительно хотите отметить пользователя как спамера? Это приведёт к удалению всех его комментариев';
+var dle_complaint  = 'Укажите текст Вашей жалобы для администрации:';
+var dle_big_text   = 'Выделен слишком большой участок текста.';
+var dle_orfo_title = 'Укажите комментарий для администрации к найденной ошибке на странице';
+var dle_p_send     = 'Отправить';
+var dle_p_send_ok  = 'Уведомление успешно отправлено';
+var dle_save_ok    = 'Изменения успешно сохранены. Обновить страницу?';
+var dle_del_news   = 'Удалить статью';
+var allow_dle_delete_news   = false;
+var dle_search_delay   = false;
+var dle_search_value   = '';
+$(function(){
+	FastSearch();
+});
+//-->
+</script>
+  
+    
+<div id="wrap">
+    
+<div style="margin: 0 auto; width: 1000px;">
+    <div class="topLine">
+        <div class="login">
+
+
+
+
+<form method="post" >
+<input id="login_name" name="login_name" type="text" value="Логин" onblur="if(this.value=='') this.value='Логин';" onfocus="if(this.value=='Логин') this.value='';" />
+<input id="login_password" name="login_password" type="password" value="Пароль" onblur="if(this.value=='') this.value='Пароль';" onfocus="if(this.value=='Пароль') this.value='';" />
+<input name="login" type="hidden" id="login" value="submit" />
+<input value="" type="submit" onclick="submit();" class="buttonEx"/>
+
+<div class="clr"></div>
+</form>
+
+<div id="vkLog"></div>
+<script>
+$.ajax({
+  url: '/vk.php',
+  success: function(data) {
+    $('#vkLog').html(data);
+  }
+});
+</script>
+<span style="left: 387px;" class="fromSpan"><a href="https://animevost.org/index.php?do=lostpassword">Забыли пароль?</a><br />
+Господин, ты нам нужен! <a href="https://animevost.org/index.php?do=register">Регистрируйся!</a></span>
+
+
+</div>
+        <div class="search">
+            <form class="search" name="searchform" method="post">
+            	<input type="hidden" name="do" value="search" />
+                <input type="hidden" name="subaction" value="search" />
+                <input class="search" id="story" name="story" value="Тут поиск, пользуйся, господин!" onblur="if(this.value=='') this.value='Тут поиск, пользуйся, господин!';" onfocus="if(this.value=='Тут поиск, пользуйся, господин!') this.value='';" type="text" />
+                <input class="searchButton" title="Найти" alt="Найти" type="image" src="/templates/AnimeVostNext5/images/button_searchBG.png" />
+            </form>
+		</div>
+    </div>
+</div>
+<!-- Шапка -->
+    
+<div class="headbgnew">
+        <a style="display: block; height: 100%; position: absolute; width: 100%;" href="https://espritgames.ru/sao2/promo/asuna/?esc=animevost_sao2_banner_b001_l3_f" target="_blank"></a>
+
+        <div class="menu">
+            <ul id="topnav">
+                <li><a href="/">Главная</a></li>
+                <li><a href="/zhanr/">Жанр</a>
+                <div class="sar">
+                    <span id="blok_1" >
+                        <a href="/zhanr/boyevyye-iskusstva/" >Боевые искусства</a>
+                        <a href="/zhanr/voyna/" >Война</a>
+                        <a href="/zhanr/drama/" >Драма</a>
+                        <a href="/zhanr/detektiv/" >Детектив</a>
+                        <a href="/zhanr/istoriya/" >История</a>
+                        <a href="/zhanr/komediya/" >Комедия</a>
+                        <a href="/zhanr/mekha/" >Меха</a>
+                        <a href="/zhanr/mistika/" >Мистика</a>
+                    </span>
+                    <span id="blok_2" >
+                        <a href="/zhanr/makho-sedze/" >Махо-сёдзё</a>
+                        <a href="/zhanr/muzykalnyy/" >Музыкальный</a>
+                        <a href="/zhanr/povsednevnost/" >Повседневность</a>
+                        <a href="/zhanr/priklyucheniya/" >Приключения</a>
+                        <a href="/zhanr/parodiya/" >Пародия</a>
+                        <a href="/zhanr/romantika/" >Романтика</a>
+                        <a href="/zhanr/senen/" >Сёнэн</a>
+                        <a href="/zhanr/sedze/" >Сёдзё</a>
+                    </span>
+                    <span id="blok_3" >
+                        <a href="/zhanr/sport/" >Спорт</a>
+                        <a href="/zhanr/skazka/" >Сказка</a>
+                        <a href="/zhanr/sedze-ay/" >Сёдзё-ай</a>
+                        <a href="/zhanr/senen-ay/" >Сёнэн-ай</a>
+                        <a href="/zhanr/samurai/" >Самураи</a>
+                        <a href="/zhanr/triller/" >Триллер</a>
+                        <a href="/zhanr/uzhasy/" >Ужасы</a>
+                        <a href="/zhanr/fantastika/" >Фантастика</a>
+                    </span>
+                    <span id="blok_78" >
+                        <a href="/zhanr/fentezi/" >Фэнтези</a>
+                        <a href="/zhanr/shkola/" >Школа</a>
+                        <a href="/zhanr/etti/" >Этти</a>
+                    </span>
+                    <div class="clr"></div>
+                </div></li>
+                <li><a href="/tip/">Категории</a>
+                <span class="sar">
+                        <span id="blok_4" >
+                            <a href="/tip/tv/" >ТВ</a>
+                            <a href="/tip/tv-speshl/" >ТВ-спэшл</a>
+                            <a href="/tip/ova/" >OVA</a>
+                            <a href="/tip/ona/" >ONA</a>
+                            <a href="/tip/polnometrazhnyy-film/" >Полнометражный фильм</a>
+                            <a href="/tip/korotkometrazhnyy-film/" >Короткометражный фильм</a>
+                            <a href="/tip/dunkhua/" >Дунхуа</a>
+                        </span>
+                    </span>
+                </li>
+                <li><a href="/god/">Год</a>
+                <span class="sar">
+                    	<span id="blok_19" >
+                        <a href="/god/1971/" >1971</a>
+                        <a href="/god/1977/" >1977</a>
+                        <a href="/god/1980/" >1980</a>
+                        <a href="/god/1984/" >1984</a>
+                        <a href="/god/1991/" >1991</a>
+                        <a href="/god/1992/" >1992</a>
+                        </span>
+                        <span id="blok_5" >
+                        <a href="/god/1993/" >1993</a>
+                        <a href="/god/1994/" >1994</a>
+                        <a href="/god/1995/" >1995</a>
+                        <a href="/god/1996/" >1996</a>
+                        <a href="/god/1997/" >1997</a>
+                        <a href="/god/1998/" >1998</a>
+                        </span>
+                    	<span id="blok_6" >
+                        <a href="/god/1999/" >1999</a>
+                        <a href="/god/2000/" >2000</a>
+                        <a href="/god/2001/" >2001</a>
+                        <a href="/god/2002/" >2002</a>
+                        <a href="/god/2003/" >2003</a>
+                        <a href="/god/2004/" >2004</a>
+                        </span>
+                    	<span id="blok_7" >
+                        <a href="/god/2005/" >2005</a>
+                        <a href="/god/2006/" >2006</a>
+                        <a href="/god/2007/" >2007</a>
+                        <a href="/god/2008/" >2008</a>
+                        <a href="/god/2009/" >2009</a>
+			<a href="/god/2010/" >2010</a>
+                        </span>
+                    	<span id="blok_8" >
+                        <a href="/god/2011/" >2011</a>
+                        <a href="/god/2012/" >2012</a>
+                        <a href="/god/2013/" >2013</a>
+                        <a href="/god/2014/" >2014</a>
+                        <a href="/god/2015/" >2015</a>
+                        <a href="/god/2016/" >2016</a>
+                    </span>
+			<span id="blok_20" >
+                        <a href="/god/2017/" >2017</a>
+                        <a href="/god/2018/" >2018</a>
+                        <a href="/god/2019/" >2019</a>
+                        <a href="/god/2020/" >2020</a>
+                        <a href="/god/2021/" >2021</a>
+                        <a href="/god/2022/" >2022</a>
+                    </span></span>
+                </li>
+                <li><a href="/ongoing/">Онгоинги</a></li>
+		<li><a href="/preview/">Анонсы</a></li>
+                <li><a href="/index.php?do=feedback">Контакты</a></li>
+                <li><a href="/dlya-pravoobladateley.html">Правообладателям</a></li>
+                <li><a href="/index.php?action=mobile">Мобильная версия</a></li>
+            </ul>
+            <a href="/rss.xml"><img class="rss" src="/templates/AnimeVostNext5/images/rssFF.png" alt="rss"/></a>
+        </div>
+        <div class="clr"></div>
+    </div>
+
+<!-- Шапка конец -->
+
+
+<!-- Левый блок -->
+   <div style="margin: 0 auto; width: 1000px;">
+       
+    <div id="leftBlock-1">
+        
+
+        <div id="moduleLeft-1" style="border-bottom:0px;">
+            <div class="interDub" style="background: #fde1c5; border: 1px solid #feb94f; text-align: center; padding: 5px; padding-bottom: 15px;">
+                <p style="color: #c47504; font-weight: bold; text-shadow: 0 1px 0 #fff; font-size: 18px;">Рабочее зеркало<br>сайта animevost для<br />жителей РФ и Казахстана</p>
+                <br>
+                <a target="_blank" style="color: red; text-transform: uppercase; font-weight: bold; font-size: 26px;" href="https://v2.vost.pw">Ссылка</a>
+                <br />
+                <a style="text-align: center; margin-top: 5px; display: block; color:#c47504; font-size: 12px;" href="/zerkalo.html">Что такое зеркало?</a>
+            </div>
+        </div>
+
+        <!-- Последние обновления -->
+        <div id="moduleLeft-1" style="border-bottom:0px;">
+            <div class="interDub">
+                <div class="interDubBgTwo" style="padding: 0;">
+			<h2>Последние обновления</h2>
+<ul class="raspis raspis_fixed">
+	<li><a href="https://animevost.org/tip/tv/2884-futoku-no-guild.html">Развращённая гильдия / Futoku no Guild [1-9 из 12] [10 серия - 7 декабря]</a></li>
+	<li><a href="https://animevost.org/tip/tv/2891-urusei-yatsura-2022.html">Несносные пришельцы (2022) / Urusei Yatsura (2022) [1-8 из 12+]</a></li>
+	<li><a href="https://animevost.org/tip/tv/2886-akiba-maid-sensou.html">Война горничных Акибы / Akiba Maid Sensou [1-9 из 12+]</a></li>
+	<li><a href="https://animevost.org/tip/tv/2829-isekai-ojisan1.html">Перерождение Дяди / Isekai Ojisan [1-9 из 12+] [10 серия - 8 декабря]</a></li>
+	<li><a href="https://animevost.org/tip/tv/2873-mushikaburi-hime.html">Принцесса-библиофил / Mushikaburi-hime [1-9 из 12+]</a></li>
+	<li><a href="https://animevost.org/tip/tv/2724-bezuprechnyy-mir-wanmei-shijie-1-31-iz-78.html">Безупречный мир / Wanmei Shijie [1-86 из 130]</a></li>
+	<li><a href="https://animevost.org/tip/tv/2885-do-it-yourself.html">Сделай это сам!! / Do It Yourself!! [1-9 из 12+]</a></li>
+	<li><a href="https://animevost.org/tip/tv/2883-muv-luv-alternative-2nd-season.html">Мув-Лув: Альтернатива (второй сезон) / Muv-Luv Alternative 2nd Season [1-9 из 12+]</a></li>
+	<li><a href="https://animevost.org/tip/tv/2890-renai-flops.html">Любовные неудачи / Renai Flops [1-8 из 12+]</a></li>
+	<li><a href="https://animevost.org/tip/tv/2875-mob-psycho-100-3rd-season.html">Моб Психо 100 (третий сезон) / Mob Psycho 100 3rd Season [1-9 из 12+] [10 серия - 7 декабря]</a></li>
+	<li><a href="https://animevost.org/tip/tv/2870-tensei-shitara-ken-deshita.html">О моём перерождении в меч / Tensei shitara Ken Deshita [1-10 из 12+] [11 серия - 7 декабря]</a></li>
+	<li><a href="https://animevost.org/tip/tv/2871-kage-no-jitsuryokusha-ni-naritakute1.html">Восхождение в тени! / Kage no Jitsuryokusha ni Naritakute! [1-9 из 12+] [10 серия - 7 декабря]</a></li>
+	<li><a href="https://animevost.org/tip/tv/2857-doupo-cangqiong-nian-fan.html">Расколотая битвой синева небес (пятый сезон) / Doupo Cangqiong: Nian Fan [1-20 из 52]</a></li>
+	<li><a href="https://animevost.org/tip/tv/2852-yi-nian-yong-heng-chuan-cheng-pian.html">Вечная воля (второй сезон) / Yi Nian Yong Heng: Chuan Cheng Pian [1-22 из 56]</a></li>
+	<li><a href="https://animevost.org/tip/tv/2889-peter-grill-to-kenja-no-jikan-2nd-season.html">Питер Грилл и время мудреца (второй сезон) / Peter Grill to Kenja no Jikan 2nd Season [1-8 из 12+] [9 серия - 4 декабря]</a></li>
+	<li><a href="https://animevost.org/tip/tv/2872-chainsaw-man.html">Человек-бензопила / Chainsaw Man [1-8 из 12+] [9 серия - 6 декабря]</a></li>
+	<li><a href="https://animevost.org/tip/tv/2869-shinobi-no-ittoki.html">Время ниндзя / Shinobi no Ittoki [1-9 из 12+] [10 серия - 6 декабря]</a></li>
+	<li><a href="https://animevost.org/tip/tv/2751-bleach-sennen-kessen-hen.html">Блич: Тысячелетняя кровавая война / Bleach: Sennen Kessen-hen [1-8 из 52] [9 серия - 5 декабря]</a></li>
+	<li><a href="https://animevost.org/tip/tv/2864-shinmai-renkinjutsushi-no-tenpo-keiei.html">Магазинчик начинающего алхимика / Shinmai Renkinjutsushi no Tenpo Keiei [1-9 из 12+] [10 серия - 5 декабря]</a></li>
+	<li><a href="https://animevost.org/tip/tv/2874-fuufu-ijou-koibito-miman.html">Больше, чем пара, меньше, чем любовники / Fuufu Ijou, Koibito Miman. [1-8 из 12+] [9 серия - 4 декабря]</a></li>
+	<li><a href="https://animevost.org/tip/tv/2880-the-daily-life-of-the-immortal-king-3rd-season.html">Повседневная Жизнь Бессмертного Короля (третий сезон) / The Daily Life of the Immortal King 3rd Season [1-10 из 12+]</a></li>
+	<li><a href="https://animevost.org/tip/tv/2892-fumetsu-no-anata-e-2nd-season.html">Для тебя, Бессмертный (второй сезон) / Fumetsu no Anata e 2nd Season [1-6 из 12+] [7 серия - 4 декабря]</a></li>
+	<li><a href="https://animevost.org/tip/tv/1805-boruto-naruto-next-generations1112.html">Боруто: Новое поколение Наруто / Boruto: Naruto Next Generations [1-277 из 500+] [278 серия - 4 декабря]</a></li>
+	<li><a href="https://animevost.org/tip/tv/179-one-piece44.html">Ван Пис / One Piece [1-1042 из 10000+] [1043 серия - 4 декабря]</a></li>
+	<li><a href="https://animevost.org/tip/tv/2539-douluo-dalu.html">Боевой континент / Douluo Dalu [1-236 из 300+]</a></li>
+	<li><a href="https://animevost.org/tip/tv/2887-yowamushi-pedal-limit-break.html">Трусливый велосипедист: Преодоление лимита / Yowamushi Pedal: Limit Break [1-7 из 12+]</a></li>
+	<li><a href="https://animevost.org/tip/tv/2878-blue-lock.html">Синяя тюрьма: Блю Лок / Blue Lock [1-8 из 12+] [9 серия - 3 декабря]</a></li>
+	<li><a href="https://animevost.org/tip/tv/2826-utawarerumono-futari-no-hakuoro1.html">Прославленный (третий сезон) / Utawarerumono: Futari no Hakuoro [1-23 из 28]</a></li>
+	<li><a href="https://animevost.org/tip/tv/2877-bocchi-the-rock.html">Одинокий рокер! / Bocchi the Rock! [1-8 из 12+]</a></li>
+	<li><a href="https://animevost.org/tip/tv/2881-koukyuu-no-karasu.html">Ворона в гареме / Koukyuu no Karasu [1-9 из 12+]</a></li>
+
+</ul>
+           
+                </div>
+            </div>
+        </div>
+        <!-- Последние обновления -->
+        <div id="moduleLeft-1" style="border:0;">
+            <div class="interDub-2">
+                <div style="border: 1px solid #feb94f;margin:auto;">
+
+<center"><a href="https://loliland.ru/source/animevost_1" target="_blank"><img style="width: 258px;" src="/uploads/posts/2020-08/1598184176_loliland-min.gif" /></a></center>
+
+                </div>
+            </div>
+        </div>
+        <!-- Расписание -->
+        <div id="moduleLeft-1" style="border-bottom:0px;">
+            <div class="interDub">
+                <div class="interDubBgTwo">
+			                <b style="padding:11px 0px; display: block; text-align: center; color:#c97e09; font-size: 18px; border-bottom: 1px solid #fbc167;">Расписание</b>
+                <p style="padding: 8px 0px; display: block; text-align: center; color:#825001; font-weight: bold; font-size: 12px;">Представлены только те аниме, которые озвучивает сайт animevost.</p>
+
+                <a style="display: block; background: #ffb84d; color: #fff; font-weight: bold; text-transform: uppercase; font-size: 18px; padding:6px 0; text-align: center;" href="javascript:ShowOrHide('raspisMon')">Понедельник</a>
+                <div id="raspisMon" style="display: none;" class='raspis'>
+					<a href="/tip/tv/2864-shinmai-renkinjutsushi-no-tenpo-keiei.html">Магазинчик начинающего алхимика  ~ (18:30)</a>
+					<a href="/tip/tv/2751-bleach-sennen-kessen-hen.html">Блич: Тысячелетняя кровавая война  ~ (20:30)</a>
+</div>
+                <a style="display: block; margin-top: 5px; background: #ffb84d; color: #fff; font-weight: bold; text-transform: uppercase; font-size: 18px; padding:6px 0; text-align: center;" href="javascript:ShowOrHide('raspisTue')">Вторник</a>
+                <div id="raspisTue" style="display: none;"  class='raspis'>
+                    <a href="/tip/tv/2869-shinobi-no-ittoki.html">Время ниндзя  ~ (19:30)</a>
+                    <a href="/tip/tv/2872-chainsaw-man.html">Человек-бензопила  ~ (21:30)</a>
+                    
+                </div>
+				<a style="display: block; margin-top: 5px; background: #ffb84d; color: #fff; font-weight: bold; text-transform: uppercase; font-size: 18px; padding:6px 0; text-align: center;" href="javascript:ShowOrHide('raspisWed')">Среда</a>
+                <div id="raspisWed" style="display: none;"  class='raspis'> 
+                <a href="/tip/tv/2871-kage-no-jitsuryokusha-ni-naritakute.html">Восхождение в тени! ~ (20:00)</a>
+                <a href="/tip/tv/2870-tensei-shitara-ken-deshita.html">О моём перерождении в меч ~ (20:30)</a>
+                <a href="/tip/tv/2875-mob-psycho-100-3rd-season.html">Моб Психо 100 (третий сезон) ~ (21:00)</a>
+                <a href="/tip/tv/2884-futoku-no-guild.html">Развращённая гильдия ~ (21:30)</a>
+                <a href="/tip/tv/2883-muv-luv-alternative-2nd-season.html">Мув-Лув: Альтернатива (второй сезон) ~ (22:00)</a>
+                <a href="/tip/tv/2890-renai-flops.html">Любовные неудачи ~ (22:00)</a>
+                <a href="/tip/tv/2885-do-it-yourself.html">Сделай это сам!! ~ (22:30)</a>
+                <a href="/tip/tv/2852-yi-nian-yong-heng-chuan-cheng-pian.html">Вечная воля (второй сезон) ~ (В течение дня)</a>
+                </div>
+                <a style="display: block; margin-top: 5px; background: #ffb84d; color: #fff; font-weight: bold; text-transform: uppercase; font-size: 18px; padding:6px 0; text-align: center;" href="javascript:ShowOrHide('raspisThu')">Четверг</a>
+                <div id="raspisThu" style="display: none;"  class='raspis'>
+
+                    <a href="/tip/tv/2873-mushikaburi-hime.html">Принцесса-библиофил ~ (20:00)</a>
+                    <a href="/tip/tv/2886-akiba-maid-sensou.html">Война горничных Акибы ~ (21:00)</a>
+                    <a href="/tip/tv/2894-kancolle-itsuka-ano-umi-de.html">Флотская коллекция (второй сезон) ~ (21:00)</a>
+                    <a href="/tip/tv/2891-urusei-yatsura-2022.html">Несносные пришельцы (2022) ~ (23:00)</a>
+                </div>
+                <a style="display: block; margin-top: 5px; background: #ffb84d; color: #fff; font-weight: bold; text-transform: uppercase; font-size: 18px; padding:6px 0; text-align: center;" href="javascript:ShowOrHide('raspisFri')">Пятница</a>
+                <div id="raspisFri" style="display: none;"  class='raspis'>
+                    <a href="/tip/tv/2860-uchi-no-shishou-wa-shippo-ga-nai.html">У моего мастера нет хвоста ~ (20:30)</a>
+                    <a href="/tip/tv/2893-arknights-reimei-zensou.html">Аркнайтс: Прелюдия к рассвету ~ (22:00)</a>
+                    <a href="/tip/tv/2821-hoshi-no-samidare.html">Люцифер и Бисквитный Молот ~ (23:00)</a>
+                    <a href="/tip/tv/2888-seiken-densetsu-legend-of-mana-the-teardrop-crystal.html">Легенда о святом мече: Легенда маны — Каплевидный кристалл ~ (23:30)</a>
+                </div>
+                <a style="display: block; margin-top: 5px; background: #ffb84d; color: #fff; font-weight: bold; text-transform: uppercase; font-size: 18px; padding:6px 0; text-align: center;" href="javascript:ShowOrHide('raspisSat')">Суббота</a>
+                <div id="raspisSat" style="display: none;"  class='raspis'>
+                
+                <a href="/tip/tv/2862-boku-no-hero-academia-6th-season.html">Моя геройская академия (шестой сезон) ~ (15:00)</a>
+                <a href="/tip/tv/2876-mairimashita-iruma-kun-3rd-season.html">Добро пожаловать в ад, Ирума! (третий сезон) ~ (16:00)</a>
+                <a href="/tip/tv/2861-akuyaku-reijou-nano-de-last-boss-o-katte-mimashita.html">Я стала злодейкой, поэтому мне нужно заарканить последнего босса ~ (18:30)</a>
+                <a href="/tip/tv/2866-uzaki-chan-wa-asobitai-double.html">Узаки хочет тусоваться! (второй сезон) ~ (18:30)</a>
+                <a href="/tip/tv/2863-noumin-kanren-no-skill-bakka-agetetara-nazeka-tsuyoku-natta.html">Каким-то образом я стал сильнейшим, прокачивая фермерские навыки ~ (18:30)</a>
+                <a href="/tip/tv/2867-yuusha-party-wo-tsuihou-sareta-beast-tamer-saikyoushu-no-nekomimi-shoujo-to-deau.html">Укротитель зверей, изгнанный из команды героя, встретил девочку-кошку из сильнейшей расы ~ (20:00)</a>
+                <a href="/tip/tv/2798-spy-x-famil4.html">Семья шпиона ~ (20:30)</a>
+                <a href="/tip/tv/2881-koukyuu-no-karasu.html">Ворона в гареме ~ (20:30)</a>
+                <a href="/tip/tv/2826-utawarerumono-futari-no-hakuoro1.html">Прославленный (третий сезон) ~ (22:30)</a>
+                <a href="/tip/tv/2877-bocchi-the-rock.html">Одинокий рокер! ~ (21:30)</a>
+                <a href="/tip/tv/2887-yowamushi-pedal-limit-break.html">Трусливый велосипедист: Преодоление лимита ~ (22:00)</a>
+                <a href="/tip/tv/2878-blue-lock.html">Синяя тюрьма: Блю Лок ~ (22:00)</a>
+                <a href="/tip/tv/2539-douluo-dalu.html">Боевой континент ~ (В течение дня)</a>
+                </div>
+                <a style="display: block; margin-top: 5px; background: #ffb84d; color: #fff; font-weight: bold; text-transform: uppercase; font-size: 18px; padding:6px 0; text-align: center;" href="javascript:ShowOrHide('raspisSun')">Воскресенье</a>
+                <div id="raspisSun" style="display: none;"  class='raspis'>
+               
+                <a href="/tip/tv/179-one-piece.html">Ван Пис ~ (09:00)</a>
+                <a href="/tip/tv/1805-boruto-naruto-next-generations111.html">Боруто: Новое поколение Наруто ~ (14:00)</a>
+                <a href="/tip/tv/2892-fumetsu-no-anata-e-2nd-season.html">Для тебя, Бессмертный ~ (17:00)</a>
+                <a href="/tip/tv/2874-fuufu-ijou-koibito-miman.html">Больше, чем пара, меньше, чем любовники ~ (19:00)</a>
+                <a href="/tip/tv/2889-peter-grill-to-kenja-no-jikan-2nd-season.html">Питер Грилл и время мудреца (второй сезон) ~ (21:00)</a>
+                <a href="/tip/tv/2880-the-daily-life-of-the-immortal-king-3rd-season.html">Повседневная Жизнь Бессмертного Короля (третий сезон) ~ (В течение дня)</a>
+                    
+                </div>
+ 				
+				<p style="padding: 6px 4px 7px 4px; display: block; text-align: center; color:red; font-weight: bold; font-size: 12px;">Указано время выхода релиза в русской озвучке. (Московское)</p>
+				<script>
+				
+					var links = document.querySelectorAll('.raspis a[href]');
+					var create_popup = createPopup();
+					var popup_info = create_popup.popup;
+					var popup_desc = create_popup.desc;
+					var popup_img = create_popup.img;
+					var popup_right = create_popup.cont_img;
+					var popup_ser = create_popup.elem_ser;
+					var popup_time = create_popup.elem_time;
+					var t = false; 
+					var set_timer = false;
+					$.get('/time.php',function(data) {
+						t = +data;
+					});
+
+					for(var l = 0; l < links.length; l++){
+						var link = links[l];
+						link.addEventListener('mouseover', function(){
+							linkOver(this)
+						});
+						link.addEventListener('mouseout', function(){
+							linkOut(this)
+						});
+
+					}
+					function linkOver(link){
+						link.appendChild(popup_info);
+						popup_info.classList.add('hide');
+						var src = link.href;
+						var arr = src.split('/');
+						var index = arr.indexOf('tv');
+						if(index != -1){
+							var str = arr[index+1];
+							var arr_str = str.split('-');
+							var id = arr_str[0];
+
+							loadJson(id, link);
+						};
+					}
+					function linkOut(link){
+						popup_desc.innerHTML = '';
+						popup_img.src = '';
+						popup_ser.innerHTML = '0';
+						popup_time.innerHTML = '0:00:00:00';
+						clearInterval(set_timer)
+						link.removeChild(popup_info)
+					}
+
+					function loadJson(id, elem){
+						var url = 'https://api.animevost.org/animevost/api/v0.2/GetInfo/'+id;
+						var xhr = typeof XMLHttpRequest != 'undefined'
+								? new XMLHttpRequest()
+								: new ActiveXObject('Microsoft.XMLHTTP');
+						xhr.open('get', url, true);
+						xhr.onreadystatechange = function() {
+							var status;
+							var data;
+							if (xhr.readyState == 4) { 
+								status = xhr.status;
+								if (status == 200) {
+									data = JSON.parse(xhr.responseText);
+									updatePopup(data);
+								}
+							}
+						}
+				
+						xhr.send();
+					}
+					function createPopup(parent){
+						var popup = document.createElement('popup');
+						popup.className = 'popup';
+						//parent.appendChild(popup);
+						
+						var cont = document.createElement('div');
+						popup.appendChild(cont);
+						cont.className='desc';
+						//cont.innerHTML = json.data[0].description;
+						var cont_img = document.createElement('div');
+						cont_img.className = 'cont_img';
+						popup.appendChild(cont_img)
+						var img = document.createElement('img');
+						//img.src = json.data[0].urlImagePreview;
+						cont_img.appendChild(img);
+						img.onload = chechHeight;
+						var next_time = document.createElement('div');
+						next_time.className = 'nexttime';
+						next_time.innerHTML = 'До новой ';
+						cont_img.appendChild(next_time);;
+						var span_num_ser = document.createElement('span');
+						span_num_ser.innerHTML = 'серии';
+						next_time.appendChild(span_num_ser);
+						next_time.innerHTML += ' осталось:<br>'
+						var span_time = document.createElement('div');
+						span_time.innerHTML  = '0:00:00:00';
+						next_time.appendChild(span_time);
+
+
+				
+						return {
+							popup: popup,
+							desc: cont,
+							img: img,
+							cont_img: cont_img,
+							elem_ser: span_num_ser,
+							elem_time: span_time
+						}
+					}
+					function updatePopup(json){
+ popup_desc.innerHTML = json.data[0].description;
+ popup_img.src = json.data[0].urlImagePreview;
+
+
+ var has_class = popup_info.parentNode ? popup_info.parentNode.parentNode.parentNode.classList.contains('raspis_fixed') : false;
+ if(has_class){
+  var coor = popup_info.parentNode ? popup_info.parentNode.getBoundingClientRect() : false;
+  if(coor){
+   popup_info.style.position = 'fixed';
+   var top = (coor.top-120)
+   top = top < 0 ? 0 : top;
+   var left = coor.right+10;
+   popup_info.style.left = left + 'px';
+   popup_info.style.top = top + 'px';
+  }
+ } else {
+  popup_info.style.position = '';
+  popup_info.style.left = '';
+  popup_info.style.top = '';
+ }
+
+ setupTime(+json.data[0].timer)
+}
+					function setupTime(timer){
+						var left = timer - t;
+						clearInterval(set_timer)
+						set_timer = setInterval(function(){
+						var str = '0:00:00:00';
+							if(t && left > 0){
+	  							var foo = new Date;
+      							left = left - 1;
+
+								
+								var minutes = Math.floor(left / 60) || 0,
+      hours = Math.floor(minutes / 60) || 0,
+      days = Math.floor(hours / 24) || 0,
+      hours = hours % 24;
+								if (hours < 10){hours = "0"+hours};
+								var seconds = left%60;
+						        if (seconds < 10){seconds = "0"+seconds};
+								minutes %= 60;
+								if (minutes < 10){minutes = "0"+minutes};
+
+								str = days + ":" + hours +":"+ minutes +":"+ seconds ;
+							}
+
+							popup_time.innerHTML = str;
+							
+						}, 1000)
+					}
+					function chechHeight(){
+						var right = popup_right;
+						var elem = popup_desc;
+						if(!right.clientHeight) return
+
+						var prev_text = elem.innerHTML;
+						
+						var index_br = prev_text.lastIndexOf('br');
+						var arr = prev_text.split('<br /><br />');
+						if(arr.length){
+							var new_elem = document.createElement('div');
+							new_elem.className = 'example';
+							elem.appendChild(new_elem);
+							var res = false;
+							for(var i = 1; i < arr.length +1 ; i++){
+								if(res) continue
+								var new_arr = arr.slice(0, i);
+								new_elem.innerHTML = new_arr.join('<br /><br />');
+								res = new_elem.clientHeight > right.clientHeight;
+							}
+							var text = new_elem.innerHTML;
+							var l = text.length;
+							for (; l >= 0 && new_elem.clientHeight > right.clientHeight; --l) {
+								new_elem.innerHTML = text.substring(0, l) + '...';
+							}
+							elem.innerHTML = new_elem.innerHTML;
+							if(new_elem.parentNode){
+								new_elem.parentNode.removeChild(new_elem);
+							}
+						} else {
+
+							if(img.clientHeight && elem.clientHeight > right.clientHeight ){
+								var text = elem.innerHTML;
+								var l = text.length - 1;
+								for (; l >= 0 && elem.clientHeight > right.clientHeight; --l) {
+									elem.innerHTML = text.substring(0, l) + '...';
+								}
+							}
+						}
+						popup_info.classList.remove('hide');
+					}
+
+				</script>
+
+                </div>
+            </div>
+        </div>
+        <!-- Расписание конец -->
+		
+        <div id="moduleLeft-1" style="border-bottom:0px;">
+            <div class="interDub">
+                <div style="background: #39afea; border: 1px solid #2170d3; text-align: center; padding: 16px; width: 228px; margin: 0px auto; margin-top: 10px;"><a style="font-weight: bold; color: #0f51a4; font-size: 18px;" href="https://vk.vost.pw">Подпишись на наш ВК!</a></div>
+            </div>
+        </div>
+		
+        
+<div id="moduleLeft" style="border:0;">
+            <div class="interDub">
+                <div class="interDubBg" style="border: 1px solid #feb94f;margin:auto;">
+                    
+
+<!-- Yandex.RTB R-A-732347-4 -->
+<div id="yandex_rtb_R-A-732347-4"></div>
+<script>window.yaContextCb.push(()=>{
+  Ya.Context.AdvManager.render({
+    renderTo: 'yandex_rtb_R-A-732347-4',
+    blockId: 'R-A-732347-4'
+  })
+})</script>
+                </div>
+            </div>
+        </div>
+
+		
+		
+
+
+
+
+
+        <div class="moduleLeft" style="border:0; margin-top: 15px;">
+            <script>
+    jQuery(document).ready(function(){
+        jQuery.get("/get_random_post.php",{},function(response) {
+            if (response) {
+                jQuery("#blockRandomPost").html(response);
+            }
+        });
+    });
+</script>
+<div id="blockRandomPost"></div>
+<!--
+<div class="imgOngoing"><div class="imgOngoingVie">Просмотров: 1063633&nbsp;|&nbsp; Комментарий: 243</div><a href="https://animevost.org/tip/tv/2884-futoku-no-guild.html"><span>Развращённая гильдия / Futoku no Guild</span></a><img src="/uploads/posts/2022-10/1664997148_1.jpg" alt="Развращённая гильдия / Futoku no Guild" title="Развращённая гильдия / Futoku no Guild" /></div>
+-->
+        </div>
+     
+        <div id="chat" style="display:none;width:1px;height:1px">
+	  <div id="chat_head">
+	    <div id="chat_load"></div>
+	  </div>
+	  <div id="chat_body">
+	    <!-- Окно с сообщениями -->
+	    <div id="chat_overview">
+	    </div>
+	    <!-- Окно с текстом для ввода -->
+	    <div id="chat_input" contenteditable="true">
+	    </div>
+	    <!-- Дополняющий контейнер с кнопкой, справа от окна ввода -->
+	    <div id="chat_filler">
+	      <button id="chat_send" class="display:none"></button>
+	    </div>
+	  </div>
+	</div>
+        
+    </div>
+<!-- Левый конец -->
+    
+    
+    <div id="centerBlock">
+        
+        
+        
+		
+		<div class="present">
+<h1>База №1 по просмотру аниме онлайн бесплатно</h1>
+    <p><b>Аниме</b> - это искусство мультипликации зародилось еще в XX в. на Востоке, в далекой Японии. Но что удивительно, своим названием этот жанр обязан вовсе не японскому слову. Как вы уже догадались, слово «<b>аниме</b>» это всего лишь сокращение от английского «animation», которое получило успешное распространение из-за своей простоты произношения. Однако, не нужно торопиться. Ведь именно познав простоту и легкость этого удивительного жанра, вы возможно познаете себя. Японская анимация обладает качественными отличиями от своих европейских собратьев. Все дело в особом менталитете и, конечно же, оригинальной рисовке. Приведу простой пример, в мультфильмах очень часто можно встретить персонажей, которые выражают свои эмоции в скрытой форме (японцы замкнутый и скрытый по натуре народ, но при этом они вежливые и гостеприимные, но их широта души не равна русской, так что осторожнее). Не только это до сих пор заставляет поклонников <b>аниме</b> <b>смотреть</b> все новые и новые серии, а некоторые даже собираются на особые фестивали в честь своего увлечения и устраивают костюмированное шоу-косплей. Вторым условием для просмотра этих мультфильмов я считаю детальную прорисованность и, как следствие, восхитительное качество фильма налицо.
+<br /><br />
+Популярность <b>аниме</b> и <b>аниме-сериалов</b> к настоящему времени сильно возросла. Даже трудно сказать, что сейчас популярнее манга <b>онлайн</b> или <b>аниме</b> <b>онлайн</b>. Но все же одно я могу сказать точно, что в интернете сейчас полным-полно сайтов, где куча материалов по вышеизложенной мною теме. Кстати, я считаю не лишним предложить вам посетить молодой проект animevost.org (АнимеВостОрг). Это полное собрание уже переведенных на русский язык <b>аниме</b>, плюс описания к ним. Для комфортного просмотра на сайте сделан удобный плеер, функционал которого приятно удивляет в самый подходящий момент.</p>
+</div>
+		
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+		
+
+		
+<div class="batre" align="center">
+<!-- Yandex.RTB R-A-732347-1 -->
+<div id="yandex_rtb_R-A-732347-1"></div>
+<script>window.yaContextCb.push(()=>{
+  Ya.Context.AdvManager.render({
+    renderTo: 'yandex_rtb_R-A-732347-1',
+    blockId: 'R-A-732347-1'
+  })
+})</script>
+ </div>
+
+
+
+
+
+        
+    	
+        <div id="stext" style="margin: 0 0 10px 0; text-align: center;">
+            <div><form name="news_set_sort" id="news_set_sort" method="post" >Сортировать статьи по:&nbsp;<img src="/templates/AnimeVostNext5/dleimages/desc.gif" alt="" /><a href="#" onclick="dle_change_sort('date','asc'); return false;">дате</a> | <a href="#" onclick="dle_change_sort('rating','desc'); return false;">популярности</a> | <a href="#" onclick="dle_change_sort('news_read','desc'); return false;">посещаемости</a> | <a href="#" onclick="dle_change_sort('comm_num','desc'); return false;">комментариям</a> | <a href="#" onclick="dle_change_sort('title','desc'); return false;">алфавиту</a><input type="hidden" name="dlenewssortby" id="dlenewssortby" value="date" />
+<input type="hidden" name="dledirection" id="dledirection" value="DESC" />
+<input type="hidden" name="set_new_sort" id="set_new_sort" value="dle_sort_main" />
+<input type="hidden" name="set_direction_sort" id="set_direction_sort" value="dle_direction_main" />
+<script>
+<!-- begin
+
+function dle_change_sort(sort, direction){
+
+  var frm = document.getElementById('news_set_sort');
+
+  frm.dlenewssortby.value=sort;
+  frm.dledirection.value=direction;
+
+  frm.submit();
+  return false;
+};
+
+// end -->
+</script></form></div>
+        </div>
+        
+        
+        
+        <div id='dle-content'>		<div class="shortstory">
+            <div class="shortstoryHead">
+                
+                <h2>
+                    <a href="https://animevost.org/tip/tv/2884-futoku-no-guild.html">Развращённая гильдия / Futoku no Guild [1-9 из 12] [10 серия - 7 декабря]</a>
+                </h2>
+            </div>
+            <div class="staticInfo">
+                <div class="staticInfoLeft">
+                    <span><a onclick="ShowProfile('animevost', 'https://animevost.org/user/animevost/', '0'); return false;" href="https://animevost.org/user/animevost/">animevost</a></span>
+                    <span class="staticInfoLeftData">1 декабрь 2022</span>
+                    
+                </div>
+                <div class="staticInfoRight">
+                    <span class="staticInfoRightSmotr">1063633</span>
+                    <span><a href="https://animevost.org/tip/tv/2884-futoku-no-guild.html#comment">243</a></span> 
+                </div>
+            </div>
+            <div class="shortstoryContent">
+                <table>
+                <tr>
+                <td>
+                
+                    <div style="width: 240px; float: left; margin-right: 12px;">
+                    <a href="https://animevost.org/tip/tv/2884-futoku-no-guild.html">
+                    <img class="imgRadius" src="/uploads/posts/2022-10/1664997148_1.jpg" alt="Развращённая гильдия / Futoku no Guild" title="Развращённая гильдия / Futoku no Guild" />
+                    </a>
+                    </div>
+                
+                <h4>Immoral Guild</h4>
+                <p><strong>Год выхода: </strong>2022</p>
+                <p><strong>Жанр: </strong>комедия, этти, сёнэн, фэнтези</p>
+                <p><strong>Тип: </strong>ТВ</p>
+                <p><strong>Количество серий: </strong>12+ (25 мин.)</p>
+                <p><strong>Режиссёр: </strong><a href="https://animevost.org/xfsearch/%D0%90%D1%81%D0%B0%D0%BE%D0%BA%D0%B0+%D0%A2%D0%B0%D0%BA%D1%83%D1%8F/">Асаока Такуя</a></p>
+                <div><strong>Рейтинг: </strong><div class="ratingIn" id='ratig-layer-2884'><div class="rating">
+		<ul class="unit-rating">
+		<li class="current-rating" style="width:80%;">80</li>
+		<li><a href="#" title="Плохо" class="r1-unit" onclick="doRate('1', '2884'); return false;">1</a></li>
+		<li><a href="#" title="Приемлемо" class="r2-unit" onclick="doRate('2', '2884'); return false;">2</a></li>
+		<li><a href="#" title="Средне" class="r3-unit" onclick="doRate('3', '2884'); return false;">3</a></li>
+		<li><a href="#" title="Хорошо" class="r4-unit" onclick="doRate('4', '2884'); return false;">4</a></li>
+		<li><a href="#" title="Отлично" class="r5-unit" onclick="doRate('5', '2884'); return false;">5</a></li>
+		</ul>
+</div></div>&nbsp;<span style="font-size:11px; color:#000;">(Голосов: <span id="vote-num-id-2884">1397</span>)</span></div>
+                <p><strong>Описание: </strong>Глядя на то, что происходило на лужайке, двадцатилетний парень из гильдии задумывается о том, как бы он хотел провести молодость. И он принимает решение бросить работу, чтобы уделить внимание личной жизни, кроме того, и друг пригласил на свадьбу, а он еще ни с кем не встречался. С самого детства он тренировался, чтобы вырасти и побеждать монстров. С восемнадцати лет он стал охотником, и только и занимался тем, что убивал монстров. Никакого разнообразия и радостных событий в его жизни не происходило. В охотничьем клубе при универе парни только то и делали, что проводили время в сексуальных утехах с девушками.<br>
+<br>
+Кикуру успел заработать кучу денег, которую некуда было тратить. И даже тот факт, что ему не заплатили бы за последний месяц работы, ничуть не пугал. Изменить его решение может новенькая сотрудница мастер боевых искусств Хитамуки. Кикуру соглашается отправиться на задание с новенькой. Кикуру планировал отдать ей свое место, если она окажется толковой. Будучи зверолюдом Китамуки за версту чует монстра, но вот атаку такового не смогла принять достойно. Такой слабости от толковой особы парень точно не ожидал. Кикуру не удается покинуть гильдию и заняться личными делами.</p>
+                </td>
+                </tr>
+                </table>
+                
+                
+            </div>
+            <div class="shortstoryFuter">
+                <form action="#">
+                
+                <a href="https://animevost.org/tip/tv/2884-futoku-no-guild.html">Смотреть</a>
+                </form>
+                <span><strong>Категории:</strong> <i><a href="https://animevost.org/tip/tv/">ТВ</a>, <a href="https://animevost.org/ongoing/">Онгоинги</a>, <a href="https://animevost.org/god/2022/">2022</a>, <a href="https://animevost.org/zhanr/komediya/">Комедия</a>, <a href="https://animevost.org/zhanr/senen/">Сёнэн</a>, <a href="https://animevost.org/zhanr/fantastika/">Фантастика</a>, <a href="https://animevost.org/zhanr/etti/">Этти</a></i></span>
+            </div>
+        </div>		<div class="shortstory">
+            <div class="shortstoryHead">
+                
+                <h2>
+                    <a href="https://animevost.org/tip/tv/2891-urusei-yatsura-2022.html">Несносные пришельцы (2022) / Urusei Yatsura (2022) [1-8 из 12+]</a>
+                </h2>
+            </div>
+            <div class="staticInfo">
+                <div class="staticInfoLeft">
+                    <span><a onclick="ShowProfile('animevost', 'https://animevost.org/user/animevost/', '0'); return false;" href="https://animevost.org/user/animevost/">animevost</a></span>
+                    <span class="staticInfoLeftData">1 декабрь 2022</span>
+                    
+                </div>
+                <div class="staticInfoRight">
+                    <span class="staticInfoRightSmotr">397212</span>
+                    <span><a href="https://animevost.org/tip/tv/2891-urusei-yatsura-2022.html#comment">155</a></span> 
+                </div>
+            </div>
+            <div class="shortstoryContent">
+                <table>
+                <tr>
+                <td>
+                
+                    <div style="width: 240px; float: left; margin-right: 12px;">
+                    <a href="https://animevost.org/tip/tv/2891-urusei-yatsura-2022.html">
+                    <img class="imgRadius" src="/uploads/posts/2022-10/1665694036_1.jpg" alt="Несносные пришельцы (2022) / Urusei Yatsura (2022)" title="Несносные пришельцы (2022) / Urusei Yatsura (2022)" />
+                    </a>
+                    </div>
+                
+                <h4>Lum, the Invader Girl</h4>
+                <p><strong>Год выхода: </strong>2022</p>
+                <p><strong>Жанр: </strong>комедия, романтика, сёнэн, фантастика</p>
+                <p><strong>Тип: </strong>ТВ</p>
+                <p><strong>Количество серий: </strong>12+ (25 мин.)</p>
+                <p><strong>Режиссёр: </strong><a href="https://animevost.org/xfsearch/%D0%A2%D0%B0%D0%BA%D0%B0%D1%85%D0%B0%D1%81%D0%B8+%D0%A5%D0%B8%D0%B4%D1%8D%D1%8F/">Такахаси Хидэя</a></p>
+                <div><strong>Рейтинг: </strong><div class="ratingIn" id='ratig-layer-2891'><div class="rating">
+		<ul class="unit-rating">
+		<li class="current-rating" style="width:60%;">60</li>
+		<li><a href="#" title="Плохо" class="r1-unit" onclick="doRate('1', '2891'); return false;">1</a></li>
+		<li><a href="#" title="Приемлемо" class="r2-unit" onclick="doRate('2', '2891'); return false;">2</a></li>
+		<li><a href="#" title="Средне" class="r3-unit" onclick="doRate('3', '2891'); return false;">3</a></li>
+		<li><a href="#" title="Хорошо" class="r4-unit" onclick="doRate('4', '2891'); return false;">4</a></li>
+		<li><a href="#" title="Отлично" class="r5-unit" onclick="doRate('5', '2891'); return false;">5</a></li>
+		</ul>
+</div></div>&nbsp;<span style="font-size:11px; color:#000;">(Голосов: <span id="vote-num-id-2891">766</span>)</span></div>
+                <p><strong>Описание: </strong>Предположения о существовании пришельцев могут подтвердить личным примером Лам и её соплеменники. Непрошенные гости имеют не очень хорошие намерения в отношении землян. Планы были захватническими. Прибыли пришельцы на чужую планету с предложением, которое могло бы защитить землян от порабощения. Атару Моробоши узнает от своих друзей о том, что его ищут представители правительства. Старшеклассника доставляют в место, где он воочию видит пришельцев, а его самого привлекают к миссии по спасению. Ему придется принять участие в игре в догонялки, и схватка определит судьбу планеты.<br>
+<br>
+Атару был парнем падким на красивых девушек, и соперница понравилась ему. Ему следовало схватить Лам за рожки. Атару не знал, что Лам умеет летать, а потому догнать её будет крайне непросто. Парень считает, если поймает её, станет героем и от девушек не будет отбоя. Но время идет, а поймать Лам он не может и даже не смог до неё дотронуться. Остается последний день соревнования, и Земля рискует оказаться во власти пришельцев. Родители Атару были угнетены неудачей сына, и находится причина его невезения, ведь он родился в неудачный день, и те пожалели о том, что произвели на свет своего ребенка.</p>
+                </td>
+                </tr>
+                </table>
+                
+                
+            </div>
+            <div class="shortstoryFuter">
+                <form action="#">
+                
+                <a href="https://animevost.org/tip/tv/2891-urusei-yatsura-2022.html">Смотреть</a>
+                </form>
+                <span><strong>Категории:</strong> <i><a href="https://animevost.org/tip/tv/">ТВ</a>, <a href="https://animevost.org/ongoing/">Онгоинги</a>, <a href="https://animevost.org/god/2022/">2022</a>, <a href="https://animevost.org/zhanr/komediya/">Комедия</a>, <a href="https://animevost.org/zhanr/romantika/">Романтика</a>, <a href="https://animevost.org/zhanr/senen/">Сёнэн</a>, <a href="https://animevost.org/zhanr/fantastika/">Фантастика</a></i></span>
+            </div>
+        </div>		<div class="shortstory">
+            <div class="shortstoryHead">
+                
+                <h2>
+                    <a href="https://animevost.org/tip/tv/2886-akiba-maid-sensou.html">Война горничных Акибы / Akiba Maid Sensou [1-9 из 12+]</a>
+                </h2>
+            </div>
+            <div class="staticInfo">
+                <div class="staticInfoLeft">
+                    <span><a onclick="ShowProfile('animevost', 'https://animevost.org/user/animevost/', '0'); return false;" href="https://animevost.org/user/animevost/">animevost</a></span>
+                    <span class="staticInfoLeftData">1 декабрь 2022</span>
+                    
+                </div>
+                <div class="staticInfoRight">
+                    <span class="staticInfoRightSmotr">195434</span>
+                    <span><a href="https://animevost.org/tip/tv/2886-akiba-maid-sensou.html#comment">121</a></span> 
+                </div>
+            </div>
+            <div class="shortstoryContent">
+                <table>
+                <tr>
+                <td>
+                
+                    <div style="width: 240px; float: left; margin-right: 12px;">
+                    <a href="https://animevost.org/tip/tv/2886-akiba-maid-sensou.html">
+                    <img class="imgRadius" src="/uploads/posts/2022-10/1665132558_1.jpg" alt="Война горничных Акибы / Akiba Maid Sensou" title="Война горничных Акибы / Akiba Maid Sensou" />
+                    </a>
+                    </div>
+                
+                <h4>Akiba Maid War</h4>
+                <p><strong>Год выхода: </strong>2022</p>
+                <p><strong>Жанр: </strong>приключения</p>
+                <p><strong>Тип: </strong>ТВ</p>
+                <p><strong>Количество серий: </strong>12+ (25 мин.)</p>
+                <p><strong>Режиссёр: </strong><a href="https://animevost.org/xfsearch/%D0%9C%D0%B0%D1%81%D1%83%D0%B9+%D0%A1%D0%BE%D0%B9%D1%82%D0%B8/">Масуй Сойти</a></p>
+                <div><strong>Рейтинг: </strong><div class="ratingIn" id='ratig-layer-2886'><div class="rating">
+		<ul class="unit-rating">
+		<li class="current-rating" style="width:60%;">60</li>
+		<li><a href="#" title="Плохо" class="r1-unit" onclick="doRate('1', '2886'); return false;">1</a></li>
+		<li><a href="#" title="Приемлемо" class="r2-unit" onclick="doRate('2', '2886'); return false;">2</a></li>
+		<li><a href="#" title="Средне" class="r3-unit" onclick="doRate('3', '2886'); return false;">3</a></li>
+		<li><a href="#" title="Хорошо" class="r4-unit" onclick="doRate('4', '2886'); return false;">4</a></li>
+		<li><a href="#" title="Отлично" class="r5-unit" onclick="doRate('5', '2886'); return false;">5</a></li>
+		</ul>
+</div></div>&nbsp;<span style="font-size:11px; color:#000;">(Голосов: <span id="vote-num-id-2886">544</span>)</span></div>
+                <p><strong>Описание: </strong>Нагоми Вахира полна решимости достичь успеха в жизни, а прибыв в Акихабару, открывает для себя привлекательную профессию. Девушка полагает, что быть горничной вполне даже приемлемо и более того, желаемо в силу некоторых личных убеждений.  И она приступает к освоению профессии, и лишь тогда девушке становится известно о невероятной конкуренции в данной сфере. И все потому, что профессия была востребована при всей своей на первой взгляд непрестижности, ведь речь-то шла о сфере обслуживания. Нагоми начинает с азов, и понимает, что не так уж просто стать вышколенной горничной, а она прилагает все старания, чтобы справиться с задачей.<br>
+<br>
+Нагоми знакомится с Ранко Маннен. Эта девушка также выбрала для себя профессиональной стезей дело горничной. Ранко была более исправной и прыткой, а потому имела все шансы привлечь к себе внимание потенциальных господ. И хоть между девушками установилось соперничество, они стали приятельствовать. Дружба все-таки не оказалась на первом месте, потому как девушкам следовало больше сосредоточиться на достижении высоких результатов в своей профессии, отчего зависело будущее. И конечно же, они столкнутся со сложностями в работе горничной.</p>
+                </td>
+                </tr>
+                </table>
+                
+                
+            </div>
+            <div class="shortstoryFuter">
+                <form action="#">
+                
+                <a href="https://animevost.org/tip/tv/2886-akiba-maid-sensou.html">Смотреть</a>
+                </form>
+                <span><strong>Категории:</strong> <i><a href="https://animevost.org/tip/tv/">ТВ</a>, <a href="https://animevost.org/ongoing/">Онгоинги</a>, <a href="https://animevost.org/god/2022/">2022</a>, <a href="https://animevost.org/zhanr/priklyucheniya/">Приключения</a></i></span>
+            </div>
+        </div>		<div class="shortstory">
+            <div class="shortstoryHead">
+                
+                <h2>
+                    <a href="https://animevost.org/tip/tv/2829-isekai-ojisan1.html">Перерождение Дяди / Isekai Ojisan [1-9 из 12+] [10 серия - 8 декабря]</a>
+                </h2>
+            </div>
+            <div class="staticInfo">
+                <div class="staticInfoLeft">
+                    <span><a onclick="ShowProfile('animevost', 'https://animevost.org/user/animevost/', '0'); return false;" href="https://animevost.org/user/animevost/">animevost</a></span>
+                    <span class="staticInfoLeftData">1 декабрь 2022</span>
+                    
+                </div>
+                <div class="staticInfoRight">
+                    <span class="staticInfoRightSmotr">1886905</span>
+                    <span></span> 
+                </div>
+            </div>
+            <div class="shortstoryContent">
+                <table>
+                <tr>
+                <td>
+                
+                    <div style="width: 240px; float: left; margin-right: 12px;">
+                    <a href="https://animevost.org/tip/tv/2829-isekai-ojisan1.html">
+                    <img class="imgRadius" src="/uploads/posts/2022-06/1656338413_1.jpg" alt="Перерождение Дяди / Isekai Ojisan" title="Перерождение Дяди / Isekai Ojisan" />
+                    </a>
+                    </div>
+                
+                <h4>Uncle from Another World</h4>
+                <p><strong>Год выхода: </strong>2022</p>
+                <p><strong>Жанр: </strong>фэнтези, комедия</p>
+                <p><strong>Тип: </strong>ТВ</p>
+                <p><strong>Количество серий: </strong>12+ (25 мин.)</p>
+                <p><strong>Режиссёр: </strong><a href="https://animevost.org/xfsearch/%D0%9A%D0%B0%D0%B2%D0%B0%D0%B9+%D0%A1%D0%B8%D0%B3%D1%8D%D0%BA%D0%B8/">Кавай Сигэки</a></p>
+                <div><strong>Рейтинг: </strong><div class="ratingIn" id='ratig-layer-2829'><div class="rating">
+		<ul class="unit-rating">
+		<li class="current-rating" style="width:100%;">100</li>
+		<li><a href="#" title="Плохо" class="r1-unit" onclick="doRate('1', '2829'); return false;">1</a></li>
+		<li><a href="#" title="Приемлемо" class="r2-unit" onclick="doRate('2', '2829'); return false;">2</a></li>
+		<li><a href="#" title="Средне" class="r3-unit" onclick="doRate('3', '2829'); return false;">3</a></li>
+		<li><a href="#" title="Хорошо" class="r4-unit" onclick="doRate('4', '2829'); return false;">4</a></li>
+		<li><a href="#" title="Отлично" class="r5-unit" onclick="doRate('5', '2829'); return false;">5</a></li>
+		</ul>
+</div></div>&nbsp;<span style="font-size:11px; color:#000;">(Голосов: <span id="vote-num-id-2829">2340</span>)</span></div>
+                <p><strong>Описание: </strong>Семнадцатилетний Сибасаки воспринимал жизнь невероятным приключением, разве что быстротечным. Он грезил о том, чтобы столкнуться с  чем-то сказочным, а мечты имеют тенденцию сбываться. Вот только переместиться в другой мир парню пришлось не без дискомфорта, страха и ужаса. Сибасаки стал жертвой наезда грузовика. В результате инцидента парень впал в кому, а его сознание было заброшено в иной мир, а там его принимают за орка и преследуют, чтобы уничтожить. Физическое состояние парня в его мире было плачевным, и родственники отчаялись, что когда-то услышат голос близкого человека.<br>
+<br>
+Прошло немало лет, и наконец-то Сибасаки пришел в сознание. Вот только мужчина стал говорить на непонятном для окружавших его людей языке. Кроме этого он уверял, что овладел магической наукой. Родственники решили, что после комы Сибасаки был не в своем уме. Разве что, племянник не воспринимает дядю сумасшедшим. Такафуми навещает дядю и собственным глазами видит, как тот перемещает предметы. Парень проникается рассказами дяди о мире, в котором тот побывал. Сибасаки воодушевленно рассказывает племяннику все, с чем пришлось столкнуться, а тот знакомит дядю с новшествами их с ним мира.</p>
+                </td>
+                </tr>
+                </table>
+                
+                
+            </div>
+            <div class="shortstoryFuter">
+                <form action="#">
+                
+                <a href="https://animevost.org/tip/tv/2829-isekai-ojisan1.html">Смотреть</a>
+                </form>
+                <span><strong>Категории:</strong> <i><a href="https://animevost.org/tip/tv/">ТВ</a>, <a href="https://animevost.org/ongoing/">Онгоинги</a>, <a href="https://animevost.org/god/2022/">2022</a>, <a href="https://animevost.org/zhanr/komediya/">Комедия</a>, <a href="https://animevost.org/zhanr/fentezi/">Фэнтези</a></i></span>
+            </div>
+        </div>		<div class="shortstory">
+            <div class="shortstoryHead">
+                
+                <h2>
+                    <a href="https://animevost.org/tip/tv/2873-mushikaburi-hime.html">Принцесса-библиофил / Mushikaburi-hime [1-9 из 12+]</a>
+                </h2>
+            </div>
+            <div class="staticInfo">
+                <div class="staticInfoLeft">
+                    <span><a onclick="ShowProfile('animevost', 'https://animevost.org/user/animevost/', '0'); return false;" href="https://animevost.org/user/animevost/">animevost</a></span>
+                    <span class="staticInfoLeftData">1 декабрь 2022</span>
+                    
+                </div>
+                <div class="staticInfoRight">
+                    <span class="staticInfoRightSmotr">253876</span>
+                    <span><a href="https://animevost.org/tip/tv/2873-mushikaburi-hime.html#comment">95</a></span> 
+                </div>
+            </div>
+            <div class="shortstoryContent">
+                <table>
+                <tr>
+                <td>
+                
+                    <div style="width: 240px; float: left; margin-right: 12px;">
+                    <a href="https://animevost.org/tip/tv/2873-mushikaburi-hime.html">
+                    <img class="imgRadius" src="/uploads/posts/2022-09/1663487754_1.jpg" alt="Принцесса-библиофил / Mushikaburi-hime" title="Принцесса-библиофил / Mushikaburi-hime" />
+                    </a>
+                    </div>
+                
+                
+                <p><strong>Год выхода: </strong>2022</p>
+                <p><strong>Жанр: </strong>драма, романтика</p>
+                <p><strong>Тип: </strong>ТВ</p>
+                <p><strong>Количество серий: </strong>12+ (25 мин.)</p>
+                <p><strong>Режиссёр: </strong><a href="https://animevost.org/xfsearch/%D0%98%D0%B2%D0%B0%D1%81%D0%B0%D0%BA%D0%B8+%D0%A2%D0%B0%D1%80%D0%BE/">Ивасаки Таро</a></p>
+                <div><strong>Рейтинг: </strong><div class="ratingIn" id='ratig-layer-2873'><div class="rating">
+		<ul class="unit-rating">
+		<li class="current-rating" style="width:60%;">60</li>
+		<li><a href="#" title="Плохо" class="r1-unit" onclick="doRate('1', '2873'); return false;">1</a></li>
+		<li><a href="#" title="Приемлемо" class="r2-unit" onclick="doRate('2', '2873'); return false;">2</a></li>
+		<li><a href="#" title="Средне" class="r3-unit" onclick="doRate('3', '2873'); return false;">3</a></li>
+		<li><a href="#" title="Хорошо" class="r4-unit" onclick="doRate('4', '2873'); return false;">4</a></li>
+		<li><a href="#" title="Отлично" class="r5-unit" onclick="doRate('5', '2873'); return false;">5</a></li>
+		</ul>
+</div></div>&nbsp;<span style="font-size:11px; color:#000;">(Голосов: <span id="vote-num-id-2873">645</span>)</span></div>
+                <p><strong>Описание: </strong>Элианна Бернштейн была необычной девушкой, а все потому, что увлекалась книгами настолько, что редко общалась с окружающими людьми. Её даже прозвали принцессой-библиофилом. Учитывая, что девушка происходила из аристократической семьи, она могла позволить себе такое увлечение, но при этом имелись у неё и некие обязательства перед обществом, с которыми следовало справляться. Элианне необходимо задуматься о выборе официальной фигуры жениха. Элианна не может подойти к выбору спутника поверхностно, без просчета всех последствий. Казалось, что девушка столкнется с серьезной дилеммой, но все обошлось.<br>
+<br>
+На пути библиофилки встречается Кристофер Селкирк Эшеральд, представляющий собой наследного принца. Более достойной партии Элианне было не сыскать. И самое главное, что Кристофер предлагает девушке заключить фиктивную помолвку в обмен на то, что он позволит заниматься тем, что ей по душе. Несколько лет Элианна провела в комфортной обстановке, но она сумела научиться общению с людьми и прониклась к принцу, а тот влюбился в другую особу. Кристофер задумывается о расторжении сделки, потому как жаждет настоящей помолвки с избранницей, тронувшей его сердце.</p>
+                </td>
+                </tr>
+                </table>
+                
+                
+            </div>
+            <div class="shortstoryFuter">
+                <form action="#">
+                
+                <a href="https://animevost.org/tip/tv/2873-mushikaburi-hime.html">Смотреть</a>
+                </form>
+                <span><strong>Категории:</strong> <i><a href="https://animevost.org/tip/tv/">ТВ</a>, <a href="https://animevost.org/ongoing/">Онгоинги</a>, <a href="https://animevost.org/god/2022/">2022</a>, <a href="https://animevost.org/zhanr/drama/">Драма</a>, <a href="https://animevost.org/zhanr/romantika/">Романтика</a></i></span>
+            </div>
+        </div>		<div class="shortstory">
+            <div class="shortstoryHead">
+                
+                <h2>
+                    <a href="https://animevost.org/tip/tv/2724-bezuprechnyy-mir-wanmei-shijie-1-31-iz-78.html">Безупречный мир / Wanmei Shijie [1-86 из 130]</a>
+                </h2>
+            </div>
+            <div class="staticInfo">
+                <div class="staticInfoLeft">
+                    <span><a onclick="ShowProfile('animevost', 'https://animevost.org/user/animevost/', '0'); return false;" href="https://animevost.org/user/animevost/">animevost</a></span>
+                    <span class="staticInfoLeftData">1 декабрь 2022</span>
+                    
+                </div>
+                <div class="staticInfoRight">
+                    <span class="staticInfoRightSmotr">2526732</span>
+                    <span></span> 
+                </div>
+            </div>
+            <div class="shortstoryContent">
+                <table>
+                <tr>
+                <td>
+                
+                    <div style="width: 240px; float: left; margin-right: 12px;">
+                    <a href="https://animevost.org/tip/tv/2724-bezuprechnyy-mir-wanmei-shijie-1-31-iz-78.html">
+                    <img class="imgRadius" src="/uploads/posts/2021-11/1636403661_1.png" alt="Безупречный мир / Wanmei Shijie" title="Безупречный мир / Wanmei Shijie" />
+                    </a>
+                    </div>
+                
+                
+                <p><strong>Год выхода: </strong>2021</p>
+                <p><strong>Жанр: </strong>приключения, фэнтези, сёнэн</p>
+                <p><strong>Тип: </strong>ONA</p>
+                <p><strong>Количество серий: </strong>130</p>
+                
+                <div><strong>Рейтинг: </strong><div class="ratingIn" id='ratig-layer-2724'><div class="rating">
+		<ul class="unit-rating">
+		<li class="current-rating" style="width:80%;">80</li>
+		<li><a href="#" title="Плохо" class="r1-unit" onclick="doRate('1', '2724'); return false;">1</a></li>
+		<li><a href="#" title="Приемлемо" class="r2-unit" onclick="doRate('2', '2724'); return false;">2</a></li>
+		<li><a href="#" title="Средне" class="r3-unit" onclick="doRate('3', '2724'); return false;">3</a></li>
+		<li><a href="#" title="Хорошо" class="r4-unit" onclick="doRate('4', '2724'); return false;">4</a></li>
+		<li><a href="#" title="Отлично" class="r5-unit" onclick="doRate('5', '2724'); return false;">5</a></li>
+		</ul>
+</div></div>&nbsp;<span style="font-size:11px; color:#000;">(Голосов: <span id="vote-num-id-2724">2050</span>)</span></div>
+                <p><strong>Описание: </strong>Вооруженный мечом воин с младенцем на руках ступил ногой на территорию дворца. Родня младенца была вооружена до зубов и вела себя крайне агрессивно. Воин прибег к особой технике защиты и активировал дракона. Он был поражен тому, что кровные родичи так агрессивно восприняла появление младенца. К малышу приближается смертельная угроза, но его защитник перехватывает меч. На помощь воину приходит смелая девушка. С того дня прошло немало лет. Юный герой занимается тренировками, стараясь вырасти достойным воином. Ши Хао получил особое благословение небесами на свершение подвигов, что могут стать великими.<br>
+<br>
+Ши Хао был рожден в мире, погруженном в непростые условия. Кланы бились друг с другом за право получения контроля и власти. Такой период был сопряжен с особым накалом и потребностью быть готовым к различного рода сражениям. Клан, к которому относится Ши Хао, обучает его умению противостоять монстрам, а их довольно много, и представителям вражеских семейств. Вот только в полной мере овладеть силой Ши Хао позволит непростое и длительное путешествие. Отправившись в путь по неизведанным территориям, мальчик получает возможность встретиться с собственной судьбой.</p>
+                </td>
+                </tr>
+                </table>
+                
+                
+            </div>
+            <div class="shortstoryFuter">
+                <form action="#">
+                
+                <a href="https://animevost.org/tip/tv/2724-bezuprechnyy-mir-wanmei-shijie-1-31-iz-78.html">Смотреть</a>
+                </form>
+                <span><strong>Категории:</strong> <i><a href="https://animevost.org/tip/tv/">ТВ</a>, <a href="https://animevost.org/tip/dunkhua/">Дунхуа</a>, <a href="https://animevost.org/ongoing/">Онгоинги</a>, <a href="https://animevost.org/god/2021/">2021</a>, <a href="https://animevost.org/zhanr/priklyucheniya/">Приключения</a>, <a href="https://animevost.org/zhanr/senen/">Сёнэн</a>, <a href="https://animevost.org/zhanr/fentezi/">Фэнтези</a></i></span>
+            </div>
+        </div>		<div class="shortstory">
+            <div class="shortstoryHead">
+                
+                <h2>
+                    <a href="https://animevost.org/tip/tv/2885-do-it-yourself.html">Сделай это сам!! / Do It Yourself!! [1-9 из 12+]</a>
+                </h2>
+            </div>
+            <div class="staticInfo">
+                <div class="staticInfoLeft">
+                    <span><a onclick="ShowProfile('animevost', 'https://animevost.org/user/animevost/', '0'); return false;" href="https://animevost.org/user/animevost/">animevost</a></span>
+                    <span class="staticInfoLeftData">30 ноябрь 2022</span>
+                    
+                </div>
+                <div class="staticInfoRight">
+                    <span class="staticInfoRightSmotr">170136</span>
+                    <span><a href="https://animevost.org/tip/tv/2885-do-it-yourself.html#comment">85</a></span> 
+                </div>
+            </div>
+            <div class="shortstoryContent">
+                <table>
+                <tr>
+                <td>
+                
+                    <div style="width: 240px; float: left; margin-right: 12px;">
+                    <a href="https://animevost.org/tip/tv/2885-do-it-yourself.html">
+                    <img class="imgRadius" src="/uploads/posts/2022-10/1665071651_1.jpg" alt="Сделай это сам!! / Do It Yourself!!" title="Сделай это сам!! / Do It Yourself!!" />
+                    </a>
+                    </div>
+                
+                
+                <p><strong>Год выхода: </strong>2022</p>
+                <p><strong>Жанр: </strong>комедия, повседневость</p>
+                <p><strong>Тип: </strong>ТВ</p>
+                <p><strong>Количество серий: </strong>12+ (25 мин.)</p>
+                <p><strong>Режиссёр: </strong><a href="https://animevost.org/xfsearch/%D0%81%D0%BD%D1%8D%D0%B4%D0%B0+%D0%9A%D0%B0%D0%B4%D0%B7%D1%83%D1%85%D0%B8%D1%80%D0%BE/">Ёнэда Кадзухиро</a></p>
+                <div><strong>Рейтинг: </strong><div class="ratingIn" id='ratig-layer-2885'><div class="rating">
+		<ul class="unit-rating">
+		<li class="current-rating" style="width:80%;">80</li>
+		<li><a href="#" title="Плохо" class="r1-unit" onclick="doRate('1', '2885'); return false;">1</a></li>
+		<li><a href="#" title="Приемлемо" class="r2-unit" onclick="doRate('2', '2885'); return false;">2</a></li>
+		<li><a href="#" title="Средне" class="r3-unit" onclick="doRate('3', '2885'); return false;">3</a></li>
+		<li><a href="#" title="Хорошо" class="r4-unit" onclick="doRate('4', '2885'); return false;">4</a></li>
+		<li><a href="#" title="Отлично" class="r5-unit" onclick="doRate('5', '2885'); return false;">5</a></li>
+		</ul>
+</div></div>&nbsp;<span style="font-size:11px; color:#000;">(Голосов: <span id="vote-num-id-2885">402</span>)</span></div>
+                <p><strong>Описание: </strong>Шестеро подруг, учащиеся в школе получают известие о том, что им предстоит взяться за работу над увлекательными проектами. Такие новости заставляют призадуматься. Пурин не могла сдержать эмоций, узнав, что одна из подруг не поступила в элитную школу. А Сэрфу и не тревожилась, ведь любила поспать и проводить время с питомцами. Она не имела амбиций и пребывала в мечтаниях. Невзирая на существенные отличия в характерах, девочки обладали одной общей чертой, и она проявлялась в стремлении изменить имена. Звали девочек Такуми, Пурин, Курэй, Сэрфу Дзебуко, Си.<br>
+<br>
+Пурин была одержима технологиями, а Сэрфу предпочитала уделять внимание истории. Пурин была недовольна тем, как выглядела подруга, ведь та была неопрятна. Сэрфу не обижалась на резкие выпады в свой адрес. Пурин из всех подруг была самой колкой на язык и нервной. При всех особенностях девочки умудрялись дружить. Немало тому способствовал тот факт, что жили они поблизости. Сэрфу открывает для себя много нового, благодаря подругам особенно тем, которые имели золотые руки, как рыжая девчонка, лихо управлявшаяся с шуруповертом. Сэрфу в силу мягкого характера готова учиться управляться инструментами и не жалеет об этом.</p>
+                </td>
+                </tr>
+                </table>
+                
+                
+            </div>
+            <div class="shortstoryFuter">
+                <form action="#">
+                
+                <a href="https://animevost.org/tip/tv/2885-do-it-yourself.html">Смотреть</a>
+                </form>
+                <span><strong>Категории:</strong> <i><a href="https://animevost.org/tip/tv/">ТВ</a>, <a href="https://animevost.org/ongoing/">Онгоинги</a>, <a href="https://animevost.org/god/2022/">2022</a>, <a href="https://animevost.org/zhanr/komediya/">Комедия</a>, <a href="https://animevost.org/zhanr/povsednevnost/">Повседневность</a></i></span>
+            </div>
+        </div>		<div class="shortstory">
+            <div class="shortstoryHead">
+                
+                <h2>
+                    <a href="https://animevost.org/tip/tv/2883-muv-luv-alternative-2nd-season.html">Мув-Лув: Альтернатива (второй сезон) / Muv-Luv Alternative 2nd Season [1-9 из 12+]</a>
+                </h2>
+            </div>
+            <div class="staticInfo">
+                <div class="staticInfoLeft">
+                    <span><a onclick="ShowProfile('animevost', 'https://animevost.org/user/animevost/', '0'); return false;" href="https://animevost.org/user/animevost/">animevost</a></span>
+                    <span class="staticInfoLeftData">30 ноябрь 2022</span>
+                    
+                </div>
+                <div class="staticInfoRight">
+                    <span class="staticInfoRightSmotr">211155</span>
+                    <span><a href="https://animevost.org/tip/tv/2883-muv-luv-alternative-2nd-season.html#comment">62</a></span> 
+                </div>
+            </div>
+            <div class="shortstoryContent">
+                <table>
+                <tr>
+                <td>
+                
+                    <div style="width: 240px; float: left; margin-right: 12px;">
+                    <a href="https://animevost.org/tip/tv/2883-muv-luv-alternative-2nd-season.html">
+                    <img class="imgRadius" src="/uploads/posts/2022-10/1664996563_1.jpg" alt="Мув-Лув: Альтернатива (второй сезон) / Muv-Luv Alternative 2nd Season" title="Мув-Лув: Альтернатива (второй сезон) / Muv-Luv Alternative 2nd Season" />
+                    </a>
+                    </div>
+                
+                
+                <p><strong>Год выхода: </strong>2022</p>
+                <p><strong>Жанр: </strong>драма, фантастика, меха</p>
+                <p><strong>Тип: </strong>ТВ</p>
+                <p><strong>Количество серий: </strong>12+ (25 мин.)</p>
+                <p><strong>Режиссёр: </strong><a href="https://animevost.org/xfsearch/%D0%9D%D0%B8%D1%81%D0%B8%D0%BC%D0%BE%D1%82%D0%BE+%D0%AE%D0%BA%D0%B8%D0%BE/">Нисимото Юкио</a></p>
+                <div><strong>Рейтинг: </strong><div class="ratingIn" id='ratig-layer-2883'><div class="rating">
+		<ul class="unit-rating">
+		<li class="current-rating" style="width:60%;">60</li>
+		<li><a href="#" title="Плохо" class="r1-unit" onclick="doRate('1', '2883'); return false;">1</a></li>
+		<li><a href="#" title="Приемлемо" class="r2-unit" onclick="doRate('2', '2883'); return false;">2</a></li>
+		<li><a href="#" title="Средне" class="r3-unit" onclick="doRate('3', '2883'); return false;">3</a></li>
+		<li><a href="#" title="Хорошо" class="r4-unit" onclick="doRate('4', '2883'); return false;">4</a></li>
+		<li><a href="#" title="Отлично" class="r5-unit" onclick="doRate('5', '2883'); return false;">5</a></li>
+		</ul>
+</div></div>&nbsp;<span style="font-size:11px; color:#000;">(Голосов: <span id="vote-num-id-2883">312</span>)</span></div>
+                <p><strong>Описание: </strong>Утро Такэру Сироганэ началось с того, что его звала Мэя. Она пыталась его разбудить, считая, что парень был настоящим соней. А когда тот понял, что происходит, был крайне удивлен отчего девушка устроилась в его постели. А за окном появилась Сумика, не сумевшая войти в дом из-за того, что Мэя сменила устройство в доме парня. Втроем они отправились в школу, болтая по дороге о всяких пустяках. Казалось, что атмосфера вокруг была вполне обыденная и привычная, но это было не так. Прежнего мира не существовало. Такэру с огромными усилиями отправляли в то пространство, какое он запомнил и сохранил в своем сердце.<br>
+<br>
+Он отправлялся в мир, каким тот был, без войны, в котором была школа и его одноклассники. Из прежнего мира в новый он доставил документы, которые ему в лаборантской передала учительница. И теперь могло быть завершено исследование Единица-00 и будет одобрена «Альтернатива-4». Такэру надеялся, что можно было предотвратить «Альтернативу-5», и будущее изменилось бы. А в новом мире он нарадоваться не мог тому, что встретил Касуми, которая помогала ему вернуться невредимым. Утро началось как-то по-другому. Микото Ёрой тоже вернулась на базу. Почти вся команда была в сборе.</p>
+                </td>
+                </tr>
+                </table>
+                <!--dle_spoiler Это аниме состоит из: --><div class="title_spoiler"><a href="javascript:ShowOrHide('sp322efc679d1dc1af25c447af459652f6')"><img id="image-sp322efc679d1dc1af25c447af459652f6" style="vertical-align: middle;border: none;" alt="" src="/templates/AnimeVostNext5/dleimages/spoiler-plus.gif" /></a>&nbsp;<a href="javascript:ShowOrHide('sp322efc679d1dc1af25c447af459652f6')"><!--spoiler_title-->Это аниме состоит из:<!--spoiler_title_end--></a></div><div id="sp322efc679d1dc1af25c447af459652f6" class="text_spoiler" style="display:none;"><!--spoiler_text-->
+<ol>
+	<li><a href="/tip/tv/1632-muv-luv-alternative-total-eclipse.html" target="_blank" title="Полное затмение">Полное затмение</a> - ТВ (24 эп.), адаптация ранобэ, 2012</li>
+	<li><a href="/tip/tv/1608-schwarzesmarken.html" target="_blank" title="Черные метки">Черные метки</a> - ТВ (12 эп.), адаптация ранобэ, 2016</li>
+	<li><a href="/tip/tv/2701-muv-luv-alternative.html" target="_blank" title="Мув-Лув: Альтернатива">Мув-Лув: Альтернатива</a> - ТВ (12 эп.), адаптация игры, 2021</li>
+	<li><a href="/tip/tv/2883-muv-luv-alternative-2nd-season.html" target="_blank" title="Мув-Лув: Альтернатива (второй сезон)">Мув-Лув: Альтернатива (второй сезон)</a> - ТВ (12 эп.), продолжение, 2022</li>
+</ol><!--spoiler_text_end--></div><!--/dle_spoiler-->
+                
+            </div>
+            <div class="shortstoryFuter">
+                <form action="#">
+                
+                <a href="https://animevost.org/tip/tv/2883-muv-luv-alternative-2nd-season.html">Смотреть</a>
+                </form>
+                <span><strong>Категории:</strong> <i><a href="https://animevost.org/tip/tv/">ТВ</a>, <a href="https://animevost.org/ongoing/">Онгоинги</a>, <a href="https://animevost.org/god/2022/">2022</a>, <a href="https://animevost.org/zhanr/drama/">Драма</a>, <a href="https://animevost.org/zhanr/mekha/">Меха</a>, <a href="https://animevost.org/zhanr/fantastika/">Фантастика</a></i></span>
+            </div>
+        </div>		<div class="shortstory">
+            <div class="shortstoryHead">
+                
+                <h2>
+                    <a href="https://animevost.org/tip/tv/2890-renai-flops.html">Любовные неудачи / Renai Flops [1-8 из 12+]</a>
+                </h2>
+            </div>
+            <div class="staticInfo">
+                <div class="staticInfoLeft">
+                    <span><a onclick="ShowProfile('animevost', 'https://animevost.org/user/animevost/', '0'); return false;" href="https://animevost.org/user/animevost/">animevost</a></span>
+                    <span class="staticInfoLeftData">30 ноябрь 2022</span>
+                    
+                </div>
+                <div class="staticInfoRight">
+                    <span class="staticInfoRightSmotr">483236</span>
+                    <span><a href="https://animevost.org/tip/tv/2890-renai-flops.html#comment">198</a></span> 
+                </div>
+            </div>
+            <div class="shortstoryContent">
+                <table>
+                <tr>
+                <td>
+                
+                    <div style="width: 240px; float: left; margin-right: 12px;">
+                    <a href="https://animevost.org/tip/tv/2890-renai-flops.html">
+                    <img class="imgRadius" src="/uploads/posts/2022-10/1666158431_1.jpg" alt="Любовные неудачи / Renai Flops" title="Любовные неудачи / Renai Flops" />
+                    </a>
+                    </div>
+                
+                <h4>Love Flops</h4>
+                <p><strong>Год выхода: </strong>2022</p>
+                <p><strong>Жанр: </strong>комедия, повседневность, школа, романтика</p>
+                <p><strong>Тип: </strong>ТВ</p>
+                <p><strong>Количество серий: </strong>12+ (25 мин.)</p>
+                <p><strong>Режиссёр: </strong><a href="https://animevost.org/xfsearch/%D0%9D%D0%B0%D0%B3%D0%B0%D1%8F%D0%BC%D0%B0+%D0%9D%D0%BE%D0%B1%D1%83%D1%91%D1%81%D0%B8/">Нагаяма Нобуёси</a></p>
+                <div><strong>Рейтинг: </strong><div class="ratingIn" id='ratig-layer-2890'><div class="rating">
+		<ul class="unit-rating">
+		<li class="current-rating" style="width:60%;">60</li>
+		<li><a href="#" title="Плохо" class="r1-unit" onclick="doRate('1', '2890'); return false;">1</a></li>
+		<li><a href="#" title="Приемлемо" class="r2-unit" onclick="doRate('2', '2890'); return false;">2</a></li>
+		<li><a href="#" title="Средне" class="r3-unit" onclick="doRate('3', '2890'); return false;">3</a></li>
+		<li><a href="#" title="Хорошо" class="r4-unit" onclick="doRate('4', '2890'); return false;">4</a></li>
+		<li><a href="#" title="Отлично" class="r5-unit" onclick="doRate('5', '2890'); return false;">5</a></li>
+		</ul>
+</div></div>&nbsp;<span style="font-size:11px; color:#000;">(Голосов: <span id="vote-num-id-2890">728</span>)</span></div>
+                <p><strong>Описание: </strong>Рожденный 8 октября Асахи Касиваги с утра посмотрел телевизор, а потом помчался на поезд, чтобы не опоздать. Также само спешила и одна девушка, с которой парень сталкивается посреди улицы. Аой принесла свои извинения, а вслух ляпнула что-то невнятное о белье. В вагоне поездка к парню подсаживается незнакомка, а он поражен тому, отчего она не выбрала другое место, ведь их было так много. Незнакомка засыпает на его плече. Он пытается освободиться от её хватки, и они вместе падают на пол. Монфа просыпается, и парень не стал ничего толком пояснять, а попросту ретировался с вагона. А через несколько минут на него налетает Карин.<br>
+<br>
+Утомленный от приключений Асахи, добирается до парка, а там случается опять какая-то несуразица с участие робота, лифчика и Амелии.  И в довершении ко всему появилась собака. Весь набор встреч был перечислен в утреннем предсказании по телевизору. Асахи слышит крики девушки, на которую напал озабоченный пес. Асахи и самому приходится стать жертвой пса. Парень потерял сознание, а пришел в себя от того, что три маленькие девочки тыкали в него палкой. В академию он, конечно же, опоздал. Пришлось Асахи вползать в аудиторию, чтобы его не заметила учительница.</p>
+                </td>
+                </tr>
+                </table>
+                
+                
+            </div>
+            <div class="shortstoryFuter">
+                <form action="#">
+                
+                <a href="https://animevost.org/tip/tv/2890-renai-flops.html">Смотреть</a>
+                </form>
+                <span><strong>Категории:</strong> <i><a href="https://animevost.org/tip/tv/">ТВ</a>, <a href="https://animevost.org/ongoing/">Онгоинги</a>, <a href="https://animevost.org/god/2022/">2022</a>, <a href="https://animevost.org/zhanr/komediya/">Комедия</a>, <a href="https://animevost.org/zhanr/povsednevnost/">Повседневность</a>, <a href="https://animevost.org/zhanr/romantika/">Романтика</a>, <a href="https://animevost.org/zhanr/shkola/">Школа</a></i></span>
+            </div>
+        </div>		<div class="shortstory">
+            <div class="shortstoryHead">
+                
+                <h2>
+                    <a href="https://animevost.org/tip/tv/2875-mob-psycho-100-3rd-season.html">Моб Психо 100 (третий сезон) / Mob Psycho 100 3rd Season [1-9 из 12+] [10 серия - 7 декабря]</a>
+                </h2>
+            </div>
+            <div class="staticInfo">
+                <div class="staticInfoLeft">
+                    <span><a onclick="ShowProfile('animevost', 'https://animevost.org/user/animevost/', '0'); return false;" href="https://animevost.org/user/animevost/">animevost</a></span>
+                    <span class="staticInfoLeftData">30 ноябрь 2022</span>
+                    
+                </div>
+                <div class="staticInfoRight">
+                    <span class="staticInfoRightSmotr">977209</span>
+                    <span><a href="https://animevost.org/tip/tv/2875-mob-psycho-100-3rd-season.html#comment">192</a></span> 
+                </div>
+            </div>
+            <div class="shortstoryContent">
+                <table>
+                <tr>
+                <td>
+                
+                    <div style="width: 240px; float: left; margin-right: 12px;">
+                    <a href="https://animevost.org/tip/tv/2875-mob-psycho-100-3rd-season.html">
+                    <img class="imgRadius" src="/uploads/posts/2022-09/1663580084_1.jpg" alt="Моб Психо 100 (третий сезон) / Mob Psycho 100 3rd Season" title="Моб Психо 100 (третий сезон) / Mob Psycho 100 3rd Season" />
+                    </a>
+                    </div>
+                
+                
+                <p><strong>Год выхода: </strong>2022</p>
+                <p><strong>Жанр: </strong>школа, романтика, повседневность, фантастика, комедия</p>
+                <p><strong>Тип: </strong>ТВ</p>
+                <p><strong>Количество серий: </strong>12+ (25 мин.)</p>
+                <p><strong>Режиссёр: </strong><a href="https://animevost.org/xfsearch/%D0%A2%D0%B0%D1%82%D0%B8%D0%BA%D0%B0%D0%B2%D0%B0+%D0%AE%D0%B4%D0%B7%D1%83%D1%80%D1%83/">Татикава Юдзуру</a></p>
+                <div><strong>Рейтинг: </strong><div class="ratingIn" id='ratig-layer-2875'><div class="rating">
+		<ul class="unit-rating">
+		<li class="current-rating" style="width:100%;">100</li>
+		<li><a href="#" title="Плохо" class="r1-unit" onclick="doRate('1', '2875'); return false;">1</a></li>
+		<li><a href="#" title="Приемлемо" class="r2-unit" onclick="doRate('2', '2875'); return false;">2</a></li>
+		<li><a href="#" title="Средне" class="r3-unit" onclick="doRate('3', '2875'); return false;">3</a></li>
+		<li><a href="#" title="Хорошо" class="r4-unit" onclick="doRate('4', '2875'); return false;">4</a></li>
+		<li><a href="#" title="Отлично" class="r5-unit" onclick="doRate('5', '2875'); return false;">5</a></li>
+		</ul>
+</div></div>&nbsp;<span style="font-size:11px; color:#000;">(Голосов: <span id="vote-num-id-2875">1398</span>)</span></div>
+                <p><strong>Описание: </strong>Шигэо с малых лет ощущал за собой наличие способностей, и таковые у него имелись и ими были психокинетические умения. Вот только управляться даром перемещения предметов ему удавалось не без последствий. Причина неудач заключалась в том, что он с легкостью поддавался эмоциям. Парень, прозванный Мобом, в четырнадцать лет становится помощником Аратаки Рэйгана, провозгласившего себя экстрасенсом. Аратаки стоял во главе конторы «Духи и тому подобное», но он не обладал даром и попросту вел мошенническую деятельность. Моб об этом не знал, когда связался с Аратаки.<br>
+<br>
+Аратаки же, хоть и был человеком с сомнительной репутацией, относился к помощнику довольно трепетно, и зачастую честно. Сила же Моба развивается, и ему начинает завидовать младший брат Рицу Кагэяма. Братишка Моба на самом деле имеет большие способности. А вот уже Мобу пришлось столкнуться с настоящей проблемой в образе Экубо, которого он сумел одолеть, но тот находит возможность, как использовать своего противника, вселившись в его тело. Но постепенно он проникается персоной Шигэо и даже готов рискнуть собой ради его спасения. А первым эспером, которого встретит на своем пути Моб, окажется Тэруки Ханазава.</p>
+                </td>
+                </tr>
+                </table>
+                <!--dle_spoiler Это аниме состоит из: --><div class="title_spoiler"><a href="javascript:ShowOrHide('sp8ca33070842f663720fb7260d0454b06')"><img id="image-sp8ca33070842f663720fb7260d0454b06" style="vertical-align: middle;border: none;" alt="" src="/templates/AnimeVostNext5/dleimages/spoiler-plus.gif" /></a>&nbsp;<a href="javascript:ShowOrHide('sp8ca33070842f663720fb7260d0454b06')"><!--spoiler_title-->Это аниме состоит из:<!--spoiler_title_end--></a></div><div id="sp8ca33070842f663720fb7260d0454b06" class="text_spoiler" style="display:none;"><!--spoiler_text-->
+<ol>
+	<li><a href="/tip/tv/1697-mob-psycho-100-one-hundred1.html" target="_blank" title="Моб Психо 100">Моб Психо 100</a> - ТВ (12 эп.), адаптация манги, 2016</li>
+	<li><a href="/tip/tv/2198-mob-psycho-100-second-season.html" target="_blank" title="Моб Психо 100 (второй сезон)">Моб Психо 100 (второй сезон)</a> - ТВ (13 эп.), продолжение, 2019</li>
+	<li><a href="/tip/tv/2875-mob-psycho-100-3rd-season.html" target="_blank" title="Моб Психо 100 (третий сезон)">Моб Психо 100 (третий сезон)</a> - ТВ (&gt;12 эп.), продолжение, 2022</li>
+</ol><!--spoiler_text_end--></div><!--/dle_spoiler-->
+                
+            </div>
+            <div class="shortstoryFuter">
+                <form action="#">
+                
+                <a href="https://animevost.org/tip/tv/2875-mob-psycho-100-3rd-season.html">Смотреть</a>
+                </form>
+                <span><strong>Категории:</strong> <i><a href="https://animevost.org/tip/tv/">ТВ</a>, <a href="https://animevost.org/ongoing/">Онгоинги</a>, <a href="https://animevost.org/god/2022/">2022</a>, <a href="https://animevost.org/zhanr/komediya/">Комедия</a>, <a href="https://animevost.org/zhanr/povsednevnost/">Повседневность</a>, <a href="https://animevost.org/zhanr/romantika/">Романтика</a>, <a href="https://animevost.org/zhanr/fantastika/">Фантастика</a>, <a href="https://animevost.org/zhanr/shkola/">Школа</a></i></span>
+            </div>
+        </div><div class="block_2">
+	<table>
+    	<tr>
+        	<td class="block_3"></td>
+            <td class="block_4"><span>1</span> <a href="https://animevost.org/page/2/">2</a> <a href="https://animevost.org/page/3/">3</a> <a href="https://animevost.org/page/4/">4</a> <a href="https://animevost.org/page/5/">5</a> <a href="https://animevost.org/page/6/">6</a> <a href="https://animevost.org/page/7/">7</a> <a href="https://animevost.org/page/8/">8</a> <a href="https://animevost.org/page/9/">9</a> <a href="https://animevost.org/page/10/">10</a> <span class="nav_ext">...</span> <a href="https://animevost.org/page/285/">285</a></td>
+            <td class="block_5"></td>
+    	</tr>
+	</table>
+</div></div>
+    </div>
+    <div class="clr"></div>
+    <div id="futer">
+        <div id="fraind">
+            <span>
+		<a rel="nofollow" href="https://tr.anidub.com/" ><img alt="AniDub" src="/friends/anidub.jpg" width="88" height="31" /></a>
+                <a rel="nofollow" href="https://tt.animedia.tv/" ><img alt="Animedia" src="/friends/animedia.png" width="88" height="31" /></a>
+                <a rel="nofollow" href="https://vk.com/shanteau" ><img alt="Shanteau Store" src="/uploads/posts/2021-11/1636368964_anton-gandon.jpg" width="88" height="31" /></a>
+                <a rel="nofollow" href="https://shiza-project.com/" ><img alt="Shiza Project" src="/friends/shiza.png" width="88" height="31" /></a>
+                <a rel="nofollow" href="https://vk.com/kansai_official" ><img alt="Kansai" src="/friends/kansai.gif" width="88" height="31" /></a>
+                <a href="https://agor.pw" ></a>
+                 </span>
+        </div>
+        <div id="copyr">
+            <ul>
+                <li><a href="/">Главная</a></li>
+                <li><a href="/zhanr/">Жанр</a></li>
+                <li><a href="/tip/">Тип</a></li>
+                <li><a href="/god/">Год</a></li>
+                <li><a href="/ongoing/">Онгоинги</a></li>
+                <li><a href="/rules.html">Правила</a></li>
+            </ul>
+            <div id="copyrText">
+                Весь материал на сайте представлен исключительно для домашнего ознакомительного просмотра.
+            	Весь контент взят из свободных источников.
+                Если какой-либо материал нарушает ваши авторские права, <a style="color:rgb(172, 113, 8);" href="/index.php?do=feedback">свяжитись с нами</a> и мы его сразу же удалим, но мы не гарантируем что он не будет добавлен заново другим пользователем.
+                Копирование материала с сайта разрешено только при согласии администрации!
+                <span style="color: red; text-decoration: underline;">Возрастное ограничение 16+</span><br />
+            </div>
+            <div class="counter">
+            </div>
+        </div>
+    </div>
+       </div>
+</div>
+        <script src="/templates/AnimeVostNext5/js/jquery.easing.1.3.js"></script>
+		<!-- Скрипт jScrollPane -->
+        <script src="/templates/AnimeVostNext5/js/jquery.mousewheel.js"></script>
+        <script src="/templates/AnimeVostNext5/js/jquery.contentcarousel.js?v=2"></script>
+		<script>
+			$('#ca-container').contentcarousel();
+		</script>
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-69540171-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+<script>
+    (function (w, d, s, e, i, u) {
+        w[e] = w[e] || [];
+        w[e].push({'admbnr.start': new Date().getTime(), event: 'load.js'});
+        w[e].push({'admbnr.uid': i, event: 'load.js'});
+        var f = d.getElementsByTagName(s)[0], j = d.createElement(s);
+        j.async = true;
+        j.src = 'https://admachina.com/bv2/load.js?uid=' + i.join('|');
+        j.onerror = function () {
+            js = d.createElement(s);
+            js.async = true;
+            js.src = '/' + u + '.php?uid=' + i.join('|');
+            f.parentNode.insertBefore(js, f);
+        };
+        f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'admbnr', ['a27699075a5','ab574d88c85'], 'a65e2320c4635c23e62be422be');
+</script>
+
+</body>
+</html>
+
+<!-- DataLife Engine Copyright SoftNews Media Group (http://dle-news.ru) -->
