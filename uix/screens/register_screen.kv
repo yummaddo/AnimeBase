@@ -1,0 +1,24 @@
+#:import hex kivy.utils.get_color_from_hex
+
+<RegisterScreen>:
+    name:'register'
+    BoxLayout:
+        orientation: "vertical"
+        canvas:
+            Color:
+                rgba: hex("#615B72")
+            Rectangle:
+                pos: self.pos
+                size: self.size
+        size_hint_x: 1
+        size_hint_y: 1
+        BoxLayout:
+            size_hint_x: 1
+            size_hint_y: 1
+            id: content
+            orientation: "vertical"
+
+            HeaderPool:
+            MenuPool:
+        
+

@@ -1,0 +1,12 @@
+#:import hex kivy.utils.get_color_from_hex
+
+<HeaderPool>:
+    orientation: "horizontal"
+    size_hint_x: 1
+    size_hint_y: 0.2
+    canvas:
+        Color:
+            rgba: hex("#726D64")
+        Rectangle:
+            pos: self.pos
+            size: self.size

@@ -14,9 +14,6 @@ from programclass.screens.prefare_screen import PrefareScreen
 from programclass.screens.profile_screen import ProfileScreen
 from programclass.screens.register_screen import RegisterScreen
 
-
-
-
 Window.size = 500,800
 Window.top = 30
 Window.left = 500
@@ -41,13 +38,13 @@ class Main(MDApp):
     def __init_secrens(self):
         self.screens = ['anime_list', 'find_anime', 'find_people', 'other_profile', 'prefare_screen', 'profile','register']
         self.screens_ojects = [
+            RegisterScreen(name=self.screens[6]),
             AnimeListScreen(name=self.screens[0]),
             FindAnimeScreen(name=self.screens[1]),
             FindPeopleScreen(name=self.screens[2]),
             OtherProfileScreen(name=self.screens[3]),
             PrefareScreen(name=self.screens[4]),
-            ProfileScreen(name=self.screens[5]),
-            RegisterScreen(name=self.screens[6])
+            ProfileScreen(name=self.screens[5])
         ]
         for element_screen in self.screens_ojects:
             self.sm.add_widget(element_screen)

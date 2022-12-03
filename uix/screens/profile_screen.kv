@@ -1,0 +1,15 @@
+#:import hex kivy.utils.get_color_from_hex
+
+<ProfileScreen>:
+    name:'profile'
+
+    BoxLayout:
+        canvas:
+            Color:
+                rgba: hex("#726654")
+            Rectangle:
+                pos: self.pos
+                size: self.size
+        orientation: "horizontal"
+        size_hint_x: 1
+        size_hint_y: 1
