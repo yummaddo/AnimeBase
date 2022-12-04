@@ -1,0 +1,117 @@
+#:import hex kivy.utils.get_color_from_hex
+
+<MainRegisterPool>:
+    Card:
+        md_bg_color: 1,1,1,1
+        elevation: 5
+        size_hint: .85, .9
+        pos_hint: { "center_x": .5, "center_y": .5}
+        radius: [10]
+        MDFloatLayout:
+            id: images_layout
+            size_hint: .9,.6
+            pos_hint: {"center_x": .5 , "center_y": 1.1}
+            
+            Image:
+                source: "media//images.png"
+                pos_hint: {"center_x": .5 , "center_y": .78}
+                size_hint: .9,.6
+
+
+
+        MDFloatLayout:
+            id: EmailLay
+            size_hint: .85, .08
+            pos_hint: { "center_x": -0.2, "center_y": .52}
+            canvas:
+                Color: 
+                    rgb: (238/255, 238/255, 238/255, 1)
+                RoundedRectangle:
+                    size: self.size
+                    pos: self.pos
+                    radius: [22]
+            TextInput:
+                hint_text: "email"
+                size_hint: 1, None
+                pos_hint: { "center_x": .5, "center_y": .5}
+                multiline: False
+                padding: 35
+
+                cursore_color: 57/255, 66/255, 143/255, 1
+                cursore_width: "2sp"
+                background_color: 0,0,0,0
+                font_size: "18sp"
+        
+        MDFloatLayout:
+            id:PasswordLay
+            size_hint: .85, .08
+            pos_hint: { "center_x": 1.2, "center_y": .41}
+            canvas:
+                Color: 
+                    rgb: (238/255, 238/255, 238/255, 1)
+                RoundedRectangle:
+                    size: self.size
+                    pos: self.pos
+                    radius: [22]
+            TextInput:
+                hint_text: "password"
+                size_hint: 1, None
+                pos_hint: { "center_x": .5, "center_y": .5}
+                multiline: False
+                cursore_color: 57/255, 66/255, 143/255, 1
+                cursore_width: "2sp"
+                background_color: 0,0,0,0
+                padding: 35
+                font_size: "18sp"
+
+        Button:
+            id: LOGINButton
+            text: "LOGIN"
+            font_size: "18sp"
+            size_hint: .4, .08
+            pos_hint: { "center_x": -0.3, "center_y": .3}
+            background_color: 0,0,0,0
+            color: 1,1,1,1
+            canvas.before: 
+                Color:
+                    rgb: 11/255, 205/255, 215/255
+                RoundedRectangle:
+                    size: self.size
+                    pos: self.pos
+                    radius: [22]
+        Button:
+            id: SIGNUPButton
+            text: "SIGNUP"
+            font_size: "18sp"
+            size_hint: .4, .08
+            pos_hint: { "center_x": 1.3, "center_y": .3}
+            background_color: 0,0,0,0
+            color: 1,1,1,1
+            canvas.before: 
+                Color:
+                    rgb: 11/255, 205/255, 215/255
+                RoundedRectangle:
+                    size: self.size
+                    pos: self.pos
+                    radius: [22]
+        MDLabel:
+            text: "OR"
+            pos_hint: { "center_x": .5, "center_y": .2}
+            font_size: "16sp"
+            halign: "center"
+        
+        MDFloatLayout:
+            id:GoogleLay
+            md_bg_color: 238/255, 238/255, 238/255, 1
+            size_hint: .68, .08
+            pos_hint: { "center_x": .5, "center_y": -0.3}
+            radius: [23]
+            MDIconButton:
+                icon: "google"
+                user_font_size: "20sp"
+                pos_hint: { "center_x": .1, "center_y": .5}
+                theme_text_color: "Custom"
+                text_color: 0,0,0,1
+            MDLabel:
+                text: "Sing with Google"
+                pos_hint: { "center_x": .7, "center_y": .5}

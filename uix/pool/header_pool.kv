@@ -3,10 +3,18 @@
 <HeaderPool>:
     orientation: "horizontal"
     size_hint_x: 1
-    size_hint_y: 0.2
+    size_hint_y: 0.18
+    
+    id: top_elements
+    pos_hint:{'top':1}
+
     canvas:
         Color:
             rgba: hex("#726D64")
         Rectangle:
             pos: self.pos
             size: self.size
+
+    BoxLayout:
+        size_hint_x: 1
+        size_hint_y: 1

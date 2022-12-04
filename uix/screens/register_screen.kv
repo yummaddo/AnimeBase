@@ -2,23 +2,13 @@
 
 <RegisterScreen>:
     name:'register'
-    BoxLayout:
-        orientation: "vertical"
-        canvas:
-            Color:
-                rgba: hex("#615B72")
-            Rectangle:
-                pos: self.pos
-                size: self.size
-        size_hint_x: 1
-        size_hint_y: 1
-        BoxLayout:
-            size_hint_x: 1
-            size_hint_y: 1
-            id: content
-            orientation: "vertical"
+    on_enter:
+        self.anim_openning_the_screen_img(main_register_pool_zone)
+        self.anim_openning_the_screen_text_input(main_register_pool_zone)
+        self.anim_openning_the_screen_google_lay(main_register_pool_zone)
+        self.anim_openning_the_screen_buttons(main_register_pool_zone)
 
-            HeaderPool:
-            MenuPool:
         
+    MainRegisterPool:
+        id:main_register_pool_zone
 

@@ -14,6 +14,8 @@ from programclass.screens.prefare_screen import PrefareScreen
 from programclass.screens.profile_screen import ProfileScreen
 from programclass.screens.register_screen import RegisterScreen
 
+import os
+
 Window.size = 500,800
 Window.top = 30
 Window.left = 500
@@ -24,14 +26,24 @@ class Main(MDApp):
     sm = ScreenManager()
 
     def build(self):
-        Builder.load_file("uix//screens//anime_list_screen.kv")
-        Builder.load_file("uix//screens//find_anime_screen.kv")
-        Builder.load_file("uix//screens//find_people_screen.kv")
-        Builder.load_file("uix//screens//other_profile_screen.kv")
-        Builder.load_file("uix//screens//prefare_screen.kv")
-        Builder.load_file("uix//screens//profile_screen.kv")
-        Builder.load_file("uix//screens//register_screen.kv")
-
+        Builder.load_file("uix//pool//header_pool.kv")
+        Builder.load_file("uix//pool//menu_pool.kv")
+    
+        screns                      = [ os.path.abspath(os.path.join(os.path.dirname(__file__), 'uix','screens\\')) + "\\\\" + item for item in os.listdir(os.path.abspath(os.path.join(os.path.dirname(__file__), 'uix','screens')))]
+        lists                       = [os.path.abspath(os.path.join(os.path.dirname(__file__), 'uix','list\\')) + "\\\\" + item for item in os.listdir(os.path.abspath(os.path.join(os.path.dirname(__file__), 'uix','list')))]
+        lists_elements              = [os.path.abspath(os.path.join(os.path.dirname(__file__), 'uix','list\\','elements')) + "\\\\" + item for item in os.listdir(os.path.abspath(os.path.join(os.path.dirname(__file__), 'uix','list','elements')))]
+        pools                       = [os.path.abspath(os.path.join(os.path.dirname(__file__), 'uix','pool\\')) + "\\\\" + item for item in os.listdir(os.path.abspath(os.path.join(os.path.dirname(__file__), 'uix','pool')))] 
+        main_of_pool_elements       = [os.path.abspath(os.path.join(os.path.dirname(__file__), 'uix','pool','main\\')) + "\\\\" + item  for item in  os.listdir(os.path.abspath(os.path.join(os.path.dirname(__file__), 'uix','pool','main')))]
+        main_of_pool_elements_items = [os.path.abspath(os.path.join(os.path.dirname(__file__), 'uix','pool','main','elements\\')) + "\\\\" + item for item in os.listdir(os.path.abspath(os.path.join(os.path.dirname(__file__), 'uix','pool','main','elements')))]
+        self.UIX = [screns,lists,lists_elements,pools,main_of_pool_elements_items, main_of_pool_elements]
+        
+        for directoty_path_list in self.UIX:
+        
+            for file_path in directoty_path_list:
+                
+                if file_path.endswith(".kv"):
+                    Builder.load_file(file_path)
+        
         return self.__init_secrens()
 
 
