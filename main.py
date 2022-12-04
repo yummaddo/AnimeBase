@@ -61,6 +61,7 @@ class Main(MDApp):
         for element_screen in self.screens_ojects:
             self.sm.add_widget(element_screen)
             
+        self.sm.current = self.screens[-2]
         return self.sm
         
 

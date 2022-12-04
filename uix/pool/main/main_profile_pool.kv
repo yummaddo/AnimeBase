@@ -1,5 +1,21 @@
 #:import hex kivy.utils.get_color_from_hex
 
 <MainProfilePool>:
-    BoxLayout:
-        orientation: "horizontal"
+    size_hint: 1,.78
+    pos_hint: {"center_x": 0.5, "center_y":0.5}
+    canvas:
+        Color:
+            rgba: hex("#ECD3AE")
+        Rectangle:
+            size: self.size
+            pos: self.pos
+
+
+
+
+
+
+
+
+
+

@@ -1,5 +1,6 @@
-from kivy.uix.boxlayout import BoxLayout
+from kivymd.uix.floatlayout import MDFloatLayout
+from kivymd.uix.behaviors import RectangularElevationBehavior
 
 
-class MenuPool(BoxLayout):
+class MenuPool(RectangularElevationBehavior,MDFloatLayout):
     pass

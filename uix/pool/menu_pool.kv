@@ -1,15 +1,83 @@
 #:import hex kivy.utils.get_color_from_hex
 
 <MenuPool>:
-    orientation: 'vertical'
+    size_hint: .94, .1
+    pos_hint: {"center_x": .5, "center_y": .06}
+    elevation: 3
+    radius: [10]
     canvas:
         Color:
-            rgba: hex("#726D64")
-        Rectangle:
-            pos: self.pos
+            rgba: hex("#ECFBFF")
+        RoundedRectangle:
             size: self.size
+            pos: self.pos
+            radius: [16]
 
-    id: bottom_navigation
-    size_hint_y: 0.12
-    size_hint_x: 1
-    pos_hint:{'bottom':1}
+    MDGridLayout:
+        cols: 4
+        size_hint_x: .9
+        pos_hint: {"center_x": .5, "center_y": .5}
+        FloatLayout:
+            size_hint_x: .25
+            size_hint_y: .9
+            pos_hint: {"center_x": .0, "center_y": .5}
+            canvas:
+                Color:
+                    rgba: hex("#D0DEE1")
+                RoundedRectangle:
+                    size: self.size
+                    pos: self.pos
+                    radius: [16]
+
+            MDIconButton:
+                pos_hint: {"center_x": .5, "center_y": .5}
+
+                id: nav_icon
+                icon: "home"
+                ripple_scale: 0
+                user_font_sizE: "50sp"
+                theme_text_color: "Custom"
+                text_color: 0,0,0,1
+                
+        FloatLayout:
+            size_hint_x: .25
+            size_hint_y: 0.9
+            pos_hint: {"center_x": .25, "center_y": .5}
+            MDIconButton:
+                pos_hint: {"center_x": .5, "center_y": .5}
+
+                id: nav_icon
+                icon: "home"
+                ripple_scale: 0
+                user_font_sizE: "50sp"
+                theme_text_color: "Custom"
+                text_color: 0,0,0,1
+
+        FloatLayout:
+            size_hint_x: .25
+            size_hint_y: 0.9
+            pos_hint: {"center_x": .5, "center_y": .5}
+            MDIconButton:
+                pos_hint: {"center_x": .5, "center_y": .5}
+
+                id: nav_icon
+                icon: "home"
+                ripple_scale: 0
+                user_font_sizE: "50sp"
+                theme_text_color: "Custom"
+                text_color: 0,0,0,1
+
+        FloatLayout:
+            size_hint_x: .25
+            size_hint_y: 0.9
+            pos_hint: {"center_x": .75, "center_y": .5}
+            MDIconButton:
+                pos_hint: {"center_x": .5, "center_y": .5}
+
+                id: nav_icon
+                icon: "home"
+                ripple_scale: 0
+                user_font_sizE: "50sp"
+                theme_text_color: "Custom"
+                text_color: 0,0,0,1
+

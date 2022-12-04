@@ -1,5 +1,5 @@
-from kivy.uix.boxlayout import BoxLayout
+from kivymd.uix.floatlayout import MDFloatLayout
 
 
-class MainPrefarePool(BoxLayout):
+class MainPrefarePool(MDFloatLayout):
     pass
