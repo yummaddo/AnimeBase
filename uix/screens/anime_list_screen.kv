@@ -1,13 +1,10 @@
 <AnimeListScreen>:
     name:'anime_list'
+    
+    HeaderPool:
 
-    BoxLayout:
-        canvas:
-            Color:
-                rgba: hex("#726654")
-            Rectangle:
-                pos: self.pos
-                size: self.size
-        orientation: "horizontal"
-        size_hint_x: 1
-        size_hint_y: 1
+    MainProfilePool:
+
+    AnimeListMenuPool:
+        id: bottom_navigation
+        element_index: "2"

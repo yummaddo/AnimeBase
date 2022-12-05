@@ -1,8 +1,8 @@
 from kivymd.uix.floatlayout import MDFloatLayout
-from kivymd.uix.behaviors import FakeRectangularElevationBehavior
+from kivymd.uix.behaviors import CommonElevationBehavior
 
 
-class Card(FakeRectangularElevationBehavior, MDFloatLayout):
+class Card(CommonElevationBehavior, MDFloatLayout):
     pass
 
 class MainRegisterPool(MDFloatLayout):  

@@ -4,5 +4,5 @@ from kivy.properties import StringProperty
 from kivy.graphics import Rectangle as r, Color as c, RoundedRectangle as rr
 
 
-class MenuPool(CommonElevationBehavior,MDFloatLayout):
+class FindAnimeMenuPool(CommonElevationBehavior,MDFloatLayout):
     element_index = StringProperty()

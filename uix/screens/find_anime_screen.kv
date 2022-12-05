@@ -1,13 +1,10 @@
 <FindAnimeScreen>:
     name:'find_anime'
 
-    BoxLayout:
-        canvas:
-            Color:
-                rgba: hex("#726654")
-            Rectangle:
-                pos: self.pos
-                size: self.size
-        orientation: "horizontal"
-        size_hint_x: 1
-        size_hint_y: 1
+    HeaderPool:
+
+    MainProfilePool:
+
+    FindAnimeMenuPool:
+        id: bottom_navigation
+        element_index: "3"

@@ -1,6 +1,6 @@
 #:import hex kivy.utils.get_color_from_hex
 
-<MenuPool>:
+<ProfileMenuPool>:
     size_hint: .94, .1
     pos_hint: {"center_x": .5, "center_y": .06}
     elevation: 3
@@ -23,6 +23,14 @@
             size_hint_x: .25
             size_hint_y: .9
             pos_hint: {"center_x": .0, "center_y": .5}
+            canvas:
+                Color:
+                    rgba: hex("#CDDADE")
+                RoundedRectangle:
+                    size: self.size
+                    pos: self.pos
+                    radius: [22]
+
 
             MDIconButton:
                 pos_hint: {"center_x": .5, "center_y": .5}
