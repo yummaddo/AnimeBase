@@ -1,16 +1,180 @@
 #:import hex kivy.utils.get_color_from_hex
 
 <MainProfilePool>:
-    size_hint: 1,.78
+    size_hint: 1, .78
     pos_hint: {"center_x": 0.5, "center_y":0.5}
-    canvas:
-        Color:
-            rgba: hex("#ECD3AE")
-        Rectangle:
-            size: self.size
-            pos: self.pos
+
+    MDFloatLayout:
+        id: left_side
+        size_hint_x: 1
+        size_hint_y: .4
+        pos_hint: {"center_x":0.5, "center_y":0.8}
+        ProfileInformationElement:
+            MDFloatLayout:
+                size_hint_x: .4
+                size_hint_y: 1
+                pos_hint: {'center_x': 0.2,'center_y': 0.5}
+                ImageOfProfile:
 
 
+            MDFloatLayout: 
+                id: other_infor_about_profile
+                size_hint_x: .6
+                size_hint_y: .95
+                pos_hint: {'center_x': 0.7,'center_y': 0.5}
+
+                ClickableLable:
+                    id: Name_layout_rectangle
+                    size_hint_x: .96
+                    size_hint_y: .14
+                    elevation: 2
+                    radius: [4]
+                    pos_hint: { "center_x": .4 , "center_y": .90}
+                    canvas.before:
+                        Color: 
+                            rgb: (238/255, 238/255, 238/255, 1)
+                        RoundedRectangle:
+                            size: self.size
+                            pos: self.pos
+                            radius: [12]
+
+                MDLabel:
+                    id: Name
+                    size_hint_x: .6
+                    pos_hint: { "center_x": .3 , "center_y": .90}
+                    text: "my name"
+                    font_size: "14sp"
+                    halign: "left"
+
+
+                ClickableLable:
+                    id: registration_date_layout_rectangle
+                    size_hint_x: .84
+                    size_hint_y: .14
+                    elevation: 2
+                    radius: [4]
+                    pos_hint: { "center_x": .4 , "center_y": .70}
+                    canvas.before:
+                        Color: 
+                            rgb: (238/255, 238/255, 238/255, 1)
+                        RoundedRectangle:
+                            size: self.size
+                            pos: self.pos
+                            radius: [12]
+
+                MDLabel:
+                    id: registration_date
+                    size_hint_x: .6
+                    pos_hint: { "center_x": .36 , "center_y": .70}
+                    text: "Date of registration"
+                    font_size: "14sp"
+                    halign: "left"
+                
+                ClickableLable:
+                    id: id_profile_layout_rectangle
+                    size_hint_x: .78
+                    size_hint_y: .14
+                    elevation: 2
+                    radius: [4]
+                    pos_hint: { "center_x": .42 , "center_y": .50}
+                    canvas.before:
+                        Color: 
+                            rgb: (238/255, 238/255, 238/255, 1)
+                        RoundedRectangle:
+                            size: self.size
+                            pos: self.pos
+                            radius: [12]
+
+                MDLabel:
+                    id: id_profile
+                    size_hint_x: .6
+                    pos_hint: { "center_x": .4 , "center_y": .50}
+                    text: "profile  id"
+                    font_size: "14sp"
+                    halign: "left"
+
+
+                ClickableLable:
+                    id: hint_information_layout_rectangle
+                    size_hint_x: .8
+                    size_hint_y: .14
+                    elevation: 2
+                    radius: [4]                    
+                    pos_hint: { "center_x": .4 , "center_y": .30}
+                    canvas.before:
+                        Color: 
+                            rgb: (238/255, 238/255, 238/255, 17)
+                        RoundedRectangle:
+                            size: self.size
+                            pos: self.pos
+                            radius: [12]
+
+                MDLabel:
+                    id: hint_information
+                    size_hint_x: .6
+                    pos_hint: { "center_x": .4 , "center_y": .30}
+                    text: "smth info about me one"
+                    font_size: "14sp"
+                    halign: "left"
+                
+                
+                ClickableLable:
+                    id: hint_information_layout_rectangle
+                    size_hint_x: .96
+                    size_hint_y: .14
+                    elevation: 2
+                    radius: [4]
+                    pos_hint: { "center_x": .4 , "center_y": .10}
+                    canvas.before:
+                        Color: 
+                            rgb: (238/255, 238/255, 238/255, 17)
+                        RoundedRectangle:
+                            size: self.size
+                            pos: self.pos
+                            radius: [12]
+
+                MDLabel:
+                    id: hint_information
+                    size_hint_x: .6
+                    pos_hint: { "center_x": .3 , "center_y": .10}
+                    text: "smth info about me two"
+                    font_size: "14sp"
+                    halign: "left"
+
+
+
+
+    # MDFloatLayout:
+    #     id: right_side
+    #     size_hint_x: 0.6
+    #     size_hint_y: 1
+    #     pos_hint: {"center_x":0.7, "center_y":0.5}
+
+    #     MDFloatLayout:
+    #         id: data_of_profile_box
+    #         size_hint_x: 1
+    #         size_hint_y: .35
+    #         pos_hint: {"center_x":0.5, "center_y":0.825}
+    #         canvas.before:
+    #             Color:
+    #                 rgba: hex("#FAFAFA")
+    #             Rectangle:
+    #                 size: self.size
+    #                 pos: self.pos
+
+            
+
+    #     MDFloatLayout:
+    #         id: list_of_play_list
+    #         size_hint_x: 1
+    #         size_hint_y: .65
+    #         pos_hint: {"center_x":0.5, "center_y":0.325}
+    #         canvas.before:
+    #             Color:
+    #                 rgba: hex("#FAFAFA")
+    #             Rectangle:
+    #                 size: self.size
+    #                 pos: self.pos
 
 
 

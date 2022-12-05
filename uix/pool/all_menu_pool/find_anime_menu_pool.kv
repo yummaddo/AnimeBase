@@ -59,13 +59,6 @@
             size_hint_x: .25
             size_hint_y: 0.9
             pos_hint: {"center_x": .5, "center_y": .5}
-            canvas:
-                Color:
-                    rgba: hex("#CDDADE")
-                RoundedRectangle:
-                    size: self.size
-                    pos: self.pos
-                    radius: [22]
 
             MDIconButton:
                 pos_hint: {"center_x": .5, "center_y": .5}
@@ -74,6 +67,13 @@
                 user_font_sizE: "50sp"
                 theme_text_color: "Custom"
                 text_color: 0,0,0,1
+                canvas.before:
+                    Color:
+                        rgba: hex("#CDDADE")
+                    RoundedRectangle:
+                        size: self.size[0]*1.2, self.size[1]*1.2
+                        pos: self.pos[0] -self.size[0]*0.12, self.pos[1] -self.size[0]*0.12
+                        radius: [self.size[0]]
                 on_release: 
                     app.swap_screen(2)
 

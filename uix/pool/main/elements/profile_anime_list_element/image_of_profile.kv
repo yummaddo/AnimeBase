@@ -1,0 +1,52 @@
+
+<RoundedImage>
+    pos_hint: {"center_x": .5 , "center_y": .5}
+    halign: "center"
+    valign: "center"
+    size: root.size
+    pos: root.pos
+    size_hint: 1,1
+    canvas.before:
+        Color:
+            rgb: 1, 1, 1
+        Ellipse:
+            pos: self.pos
+            size: self.size
+            source: 'media/profile.png'
+            angle_start: 0
+            angle_end: 360
+    MDFloatLayout:
+        id: border
+        pos_hint: {"center_x": .5 , "center_y": .5}
+        size_hint: 1,1
+        canvas.before:
+
+            Color:
+                rgba: (.4,.4,.4,1) if self.state=='normal' else (0,.7,.7,1)  # visual feedback of press
+            RoundedRectangle:
+                pos: self.pos
+                size: self.size
+                radius: [50,]
+
+
+<ImageOfProfile>
+    id: image_box
+    size_hint: .8, .8
+    md_bg_color: 1,1,1,1
+
+    pos_hint: {"center_x": .5 , "center_y": .5}
+    elevation: 3
+    radius: [self.size[0]/2]
+
+    RoundedImage:
+        source: "media/profile.png"
+        radius: [self.parent.size[0]/2]
+
+
+
+        # canvas.before:
+        #     Color:
+        #         rgba: .5, .5, .5, 1
+        #     Line:
+        #         width: 10
+        #         rectangle: self.x, self.y, self.width, self.height

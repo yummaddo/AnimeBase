@@ -32,14 +32,31 @@ class Main(MDApp):
         Builder.load_file("uix//pool//header_pool.kv")
         Builder.load_file("uix//pool//menu_pool.kv")
     
-        screns                      = [ os.path.abspath(os.path.join(os.path.dirname(__file__), 'uix','screens\\')) + "\\\\" + item for item in os.listdir(os.path.abspath(os.path.join(os.path.dirname(__file__), 'uix','screens')))]
+        screns                      = [os.path.abspath(os.path.join(os.path.dirname(__file__), 'uix','screens\\')) + "\\\\" + item for item in os.listdir(os.path.abspath(os.path.join(os.path.dirname(__file__), 'uix','screens')))]
         lists                       = [os.path.abspath(os.path.join(os.path.dirname(__file__), 'uix','list\\')) + "\\\\" + item for item in os.listdir(os.path.abspath(os.path.join(os.path.dirname(__file__), 'uix','list')))]
         lists_elements              = [os.path.abspath(os.path.join(os.path.dirname(__file__), 'uix','list\\','elements')) + "\\\\" + item for item in os.listdir(os.path.abspath(os.path.join(os.path.dirname(__file__), 'uix','list','elements')))]
         pools                       = [os.path.abspath(os.path.join(os.path.dirname(__file__), 'uix','pool\\')) + "\\\\" + item for item in os.listdir(os.path.abspath(os.path.join(os.path.dirname(__file__), 'uix','pool')))] 
         main_of_pool__menu_elements = [os.path.abspath(os.path.join(os.path.dirname(__file__), 'uix','pool','all_menu_pool\\')) + "\\\\" + item  for item in  os.listdir(os.path.abspath(os.path.join(os.path.dirname(__file__), 'uix','pool','all_menu_pool')))]
         main_of_pool_elements       = [os.path.abspath(os.path.join(os.path.dirname(__file__), 'uix','pool','main\\')) + "\\\\" + item  for item in  os.listdir(os.path.abspath(os.path.join(os.path.dirname(__file__), 'uix','pool','main')))]
         main_of_pool_elements_items = [os.path.abspath(os.path.join(os.path.dirname(__file__), 'uix','pool','main','elements\\')) + "\\\\" + item for item in os.listdir(os.path.abspath(os.path.join(os.path.dirname(__file__), 'uix','pool','main','elements')))]
-        self.UIX = [screns,lists,lists_elements,pools,main_of_pool_elements_items, main_of_pool_elements,main_of_pool__menu_elements]
+        profile_elements            = [os.path.abspath(os.path.join(os.path.dirname(__file__), 'uix','pool','main','elements','profile_anime_list_element\\')) + "\\\\" + item for item in os.listdir(os.path.abspath(os.path.join(os.path.dirname(__file__), 'uix','pool','main','elements', 'profile_anime_list_element')))]
+        find_people_elements        = [os.path.abspath(os.path.join(os.path.dirname(__file__), 'uix','pool','main','elements','find_people_list_element\\')) + "\\\\" + item for item in os.listdir(os.path.abspath(os.path.join(os.path.dirname(__file__), 'uix','pool','main','elements', 'find_people_list_element')))]
+        find_anime_list_elements    = [os.path.abspath(os.path.join(os.path.dirname(__file__), 'uix','pool','main','elements','find_anime_list_element\\')) + "\\\\" + item for item in os.listdir(os.path.abspath(os.path.join(os.path.dirname(__file__), 'uix','pool','main','elements', 'find_anime_list_element')))]
+        anime_list_elements         = [os.path.abspath(os.path.join(os.path.dirname(__file__), 'uix','pool','main','elements','anime_list_element\\')) + "\\\\" + item for item in os.listdir(os.path.abspath(os.path.join(os.path.dirname(__file__), 'uix','pool','main','elements', 'anime_list_element')))]
+            
+        self.UIX = [
+            screns,
+            lists,
+            lists_elements,
+            pools,
+            main_of_pool_elements_items,
+            main_of_pool_elements,
+            main_of_pool__menu_elements,
+            profile_elements,
+            find_people_elements,
+            find_anime_list_elements,
+            anime_list_elements
+        ]
         
         for directoty_path_list in self.UIX:
         
