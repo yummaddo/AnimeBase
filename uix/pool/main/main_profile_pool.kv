@@ -5,11 +5,12 @@
     pos_hint: {"center_x": 0.5, "center_y":0.5}
 
     MDFloatLayout:
-        id: left_side
+        id: top_side
         size_hint_x: 1
         size_hint_y: .4
         pos_hint: {"center_x":0.5, "center_y":0.8}
         ProfileInformationElement:
+
             MDFloatLayout:
                 size_hint_x: .4
                 size_hint_y: 1
@@ -33,6 +34,7 @@
                     canvas.before:
                         Color: 
                             rgb: (238/255, 238/255, 238/255, 1)
+
                         RoundedRectangle:
                             size: self.size
                             pos: self.pos
@@ -57,6 +59,7 @@
                     canvas.before:
                         Color: 
                             rgb: (238/255, 238/255, 238/255, 1)
+
                         RoundedRectangle:
                             size: self.size
                             pos: self.pos
@@ -80,6 +83,7 @@
                     canvas.before:
                         Color: 
                             rgb: (238/255, 238/255, 238/255, 1)
+
                         RoundedRectangle:
                             size: self.size
                             pos: self.pos
@@ -104,6 +108,7 @@
                     canvas.before:
                         Color: 
                             rgb: (238/255, 238/255, 238/255, 17)
+
                         RoundedRectangle:
                             size: self.size
                             pos: self.pos
@@ -128,6 +133,7 @@
                     canvas.before:
                         Color: 
                             rgb: (238/255, 238/255, 238/255, 17)
+
                         RoundedRectangle:
                             size: self.size
                             pos: self.pos
@@ -141,45 +147,75 @@
                     font_size: "14sp"
                     halign: "left"
 
+    MDFloatLayout:
+        id: profile_naviation
+        size_hint_y: .07
+        size_hint_x: .84
+        pos_hint: {"center_x": .5 , "center_y": .59}
+        ListWithMenuProfileElements:
+            canvas.before: 
+                Color:
+                    rgba: hex("BCC8D5")
 
+                RoundedRectangle:
+                    radius: self.radius
+                    pos: self.pos[0]-2, self.pos[1]
+                    size: self.size[0]+4, self.size[1]+2
 
+    MDFloatLayout:
+        id: lagest_play_lists
+        size_hint_y: .53
+        size_hint_x: .5
+        pos_hint: {"center_x": .3 , "center_y": .27}
+        ListWithMenuProfileElements:
+            canvas.before: 
+                Color:
+                    rgba: hex("#928EA8")
 
-    # MDFloatLayout:
-    #     id: right_side
-    #     size_hint_x: 0.6
-    #     size_hint_y: 1
-    #     pos_hint: {"center_x":0.7, "center_y":0.5}
+                RoundedRectangle:
+                    radius: self.radius
+                    pos: self.pos[0]-2, self.pos[1] -1
+                    size: self.size[0]+4, self.size[1]+2
 
-    #     MDFloatLayout:
-    #         id: data_of_profile_box
-    #         size_hint_x: 1
-    #         size_hint_y: .35
-    #         pos_hint: {"center_x":0.5, "center_y":0.825}
-    #         canvas.before:
-    #             Color:
-    #                 rgba: hex("#FAFAFA")
-    #             Rectangle:
-    #                 size: self.size
-    #                 pos: self.pos
+    MDFloatLayout:
+        id: friend_list
+        size_hint_y: .53
+        size_hint_x: .38
+        pos_hint: {"center_x": .77 , "center_y": .27}
+        ListWithMenuProfileElements:
+            elevation: 2
+            size_hint: .98, .98
+            pos_hint: {"center_x": .5 , "center_y": .5}
+            canvas.before: 
+                Color:
+                    rgba: hex("#928EA8")
 
-            
+                RoundedRectangle:
+                    radius: self.radius
+                    pos: self.pos[0]-0.5, self.pos[1] - 1
+                    size: self.size[0]+1, self.size[1] + 2
 
-    #     MDFloatLayout:
-    #         id: list_of_play_list
-    #         size_hint_x: 1
-    #         size_hint_y: .65
-    #         pos_hint: {"center_x":0.5, "center_y":0.325}
-    #         canvas.before:
-    #             Color:
-    #                 rgba: hex("#FAFAFA")
-    #             Rectangle:
-    #                 size: self.size
-    #                 pos: self.pos
+        MDScrollView:
+            pos_hint: {"center_x": .5 , "center_y": .5}
+            do_scroll_x: False
+            do_scroll_y: True
 
+            MDFloatLayout:
+                size_hint: 1,1
+                pos_hint: {"center_x": .5 , "center_y": .5}
+                
+                MDList:
+                    pos_hint: {"top":1,"center_x": .5}
+                    size_hint_x: 0.92
+                    size_hint_y: 1
+                    
+                    FriendsListOnProfile:
+                        img_sourse: 'media/friends/friend1.png'
+                        text: "Friend 1"
 
+                    FriendsListOnProfile:
+                        img_sourse: 'media/friends/friend2.png'
+                        text: "Friend 2"
 
-
-
-
-
+    MDFloatLayout:
 

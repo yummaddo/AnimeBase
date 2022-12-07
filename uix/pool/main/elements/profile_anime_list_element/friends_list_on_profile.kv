@@ -1,0 +1,45 @@
+<ContainerFriendsListOnProfile>:
+
+    # size_hint_x: (self.size[1] / self.size[0]) * (0.9)
+    # size_hint_y: .9
+    width: 35
+    height: 30
+    canvas:
+        Color:
+            rgba: hex("#FA56DF")   # visual feedback of press
+        Ellipse:
+            pos: self.pos[0]-2, self.pos[1] -2
+            size: self.size[0]+4, self.size[1]+4
+            angle_start: 0
+            angle_end: 360
+        Color:
+            rgb: 1, 1, 1
+        Ellipse:
+            size: self.size
+            pos: self.pos
+            source: self.parent.parent.img_sourse
+            angle_start: 0
+            angle_end: 360
+
+
+
+
+<FriendsListOnProfile>:
+    halign: "left"
+    img_sourse: self.img_sourse
+    md_bg_color: 1,1,1,1
+    height: 60
+    elevation: 2
+    radius: [4]
+    canvas.before: 
+        Color:
+            rgba: hex("ffffff")
+
+        RoundedRectangle:
+            radius: self.radius
+            pos: self.pos[0], self.pos[1]
+            size: self.size[0], self.size[1]
+    
+    ContainerFriendsListOnProfile:
+        id: container
+
