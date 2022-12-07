@@ -1,0 +1,41 @@
+<ContainerAnimeElementOfList>:
+    canvas:
+        Color:
+            rgba: hex("#FA56DF")   # visual feedback of press
+        RoundedRectangle:
+            pos: self.pos[0]-2, self.pos[1] -2
+            size: self.size[0]+4, self.size[1]+4
+
+    MDIconButton:
+        icon: "minus"
+
+    MDIconButton:
+        icon: "plus"
+
+
+<AnimeElementOfList>:
+    # on_size:
+    #     self.ids._right_container.width = container.width
+    #     self.ids._right_container.x = container.width
+    img_sourse: self.img_sourse
+    IconLeftWidget:
+        canvas:
+            Color:
+                rgba: hex("#FA56DF")   # visual feedback of press
+            RoundedRectangle:
+                pos: self.pos[0]-2, self.pos[1] -2
+                size: self.size[0]+4, self.size[1]+4
+
+            Color:
+                rgb: 1, 1, 1
+            RoundedRectangle:
+                size: self.size
+                pos: self.pos
+                source: self.parent.parent.img_sourse
+
+
+    ContainerAnimeElementOfList:
+        pos_hint: {"right": 1}
+        size_hint_x: .2
+        size_hint_y: 1
+        id: container

@@ -1,5 +1,19 @@
 #:import hex kivy.utils.get_color_from_hex
 
 <MainAnimeListPool>:
-    BoxLayout:
-        orientation: "horizontal"
+    MDScrollView:
+        pos_hint: {"center_x": .5 , "center_y": .5}
+        do_scroll_x: False
+        do_scroll_y: True
+
+        MDFloatLayout:
+            size_hint: 1,1
+            pos_hint: {"center_x": .5 , "center_y": .5}
+            MDList:
+                pos_hint: {"top":1,"center_x": .5}
+                size_hint_x: 0.92
+                size_hint_y: 1
+                AnimeElementOfList:
+                    img_sourse: "media/anime/title_1.png"
+                AnimeElementOfList:
+                    img_sourse: "media/anime/title_2.png"
