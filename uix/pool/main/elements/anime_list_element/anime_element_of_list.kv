@@ -1,41 +1,94 @@
+<RateDropDownMenu>:
+    
+
+
+
 <ContainerAnimeElementOfList>:
-    canvas:
-        Color:
-            rgba: hex("#FA56DF")   # visual feedback of press
-        RoundedRectangle:
-            pos: self.pos[0]-2, self.pos[1] -2
-            size: self.size[0]+4, self.size[1]+4
+    pos_hint: {"right": .9}
+    size_hint_x: .95
+    size_hint_y: 1
+    BoxLayout:
+        pos_hint: {"left": .95, "center_y": .5}
+        width: self.parent.size[1]
+        height: self.parent.size[1]
+        size_hint_x: .2
+        size_hint_y: .9
+        BoxLayout:
+            width: self.parent.size[1]
+            height: self.parent.size[1]
+            pos_hint: {"center_x": .5, "center_y": .5}
+            canvas.before:
+                Color:
+                    rgb: 1, 1, 1
+                RoundedRectangle:
+                    source: self.parent.parent.parent.img_sourse
+                    size: self.size
+                    pos: self.pos
+                    radius: [22]
 
-    MDIconButton:
-        icon: "minus"
 
-    MDIconButton:
-        icon: "plus"
+    BoxLayout:
+        pos_hint: {"right": .95, "center_y": .5}
+        width: self.parent.size[1] - self.parent.size[0]
+        size_hint_y: 1
+
+        pos_hint: {"center_x": .5, "center_y": .5}
+        BoxLayout:
+            size_hint_x: .98
+            size_hint_y: 1
+            orientation: 'horizontal'
+            MDLabel:
+                halign: "center"
+                id: anime_name
+                size_hint_x: 0.3
+                pos_hint: {"center_x": .3, "center_y": .5}
+                text: "title"
+
+            MDLabel:
+                halign: "center"
+                id: anime_rate
+                size_hint_x: 0.05
+                pos_hint: {"center_x": .3, "center_y": .5}
+                text: "title"
+
+            MDIconButton:
+                pos_hint: {"center_x": .6, "center_y": .5}
+                icon: "star-outline"
+            
+            MDIconButton:
+                pos_hint: {"center_x": .7, "center_y": .5}
+                icon: "playlist-edit"
+
+            MDIconButton:
+                pos_hint: {"center_x": .8, "center_y": .5}
+                icon: "delete"
 
 
-<AnimeElementOfList>:
-    # on_size:
-    #     self.ids._right_container.width = container.width
-    #     self.ids._right_container.x = container.width
+
+
+<ColliderAnimeElementOfList>:
+    orientation: 'horizontal'
+    md_bg_color: 1,1,1,1
+    size_hint_y: .95
+	pos_hint: { 'top': 1,'center_y':0.5,'center_x':0.5 }
+    radius: [5]
+    elevation: 1
     img_sourse: self.img_sourse
-    IconLeftWidget:
-        canvas:
-            Color:
-                rgba: hex("#FA56DF")   # visual feedback of press
-            RoundedRectangle:
-                pos: self.pos[0]-2, self.pos[1] -2
-                size: self.size[0]+4, self.size[1]+4
-
-            Color:
-                rgb: 1, 1, 1
-            RoundedRectangle:
-                size: self.size
-                pos: self.pos
-                source: self.parent.parent.img_sourse
-
+    canvas.before:
+        Color: 
+            rgb: (238/255, 238/255, 238/255, 1)
+        RoundedRectangle:
+            size: self.size
+            pos: self.pos
+            radius: [22]
 
     ContainerAnimeElementOfList:
-        pos_hint: {"right": 1}
-        size_hint_x: .2
-        size_hint_y: 1
         id: container
+
+<AnimeElementOfList>
+    img_sourse: self.img_sourse
+    size_y: "10dp"
+    size_hint_y: None
+    ColliderAnimeElementOfList:
+        img_sourse: self.parent.img_sourse
+        

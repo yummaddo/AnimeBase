@@ -1,14 +1,20 @@
 from kivymd.uix.list import IRightBodyTouch,ThreeLineAvatarIconListItem
-from kivymd.uix.button import MDFlatButton 
-from kivymd.uix.behaviors import FakeCircularElevationBehavior
-from kivymd.uix.floatlayout import MDFloatLayout
-from kivy.properties import StringProperty
+from kivymd.uix.behaviors import FakeCircularElevationBehavior,CircularRippleBehavior
+from kivy.uix.boxlayout import BoxLayout
+from kivy.uix.behaviors import ButtonBehavior
 
-class ContainerAnimeElementOfList(IRightBodyTouch, MDFloatLayout):
+
+class ContainerAnimeElementOfList(BoxLayout):
     adaptive_width = True
+    def __init__(self,**kwargs):
+        super().__init__(**kwargs)
 
 
-class AnimeElementOfList(FakeCircularElevationBehavior,ThreeLineAvatarIconListItem):
+class ColliderAnimeElementOfList(BoxLayout,FakeCircularElevationBehavior):
     def __init__(self,**kwargs):
         super().__init__(**kwargs)
     
+
+class AnimeElementOfList(BoxLayout,ButtonBehavior):
+    def __init__(self,**kwargs):
+        super().__init__(**kwargs)
