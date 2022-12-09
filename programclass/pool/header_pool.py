@@ -1,5 +1,6 @@
 from kivymd.uix.floatlayout import MDFloatLayout
+from kivymd.uix.behaviors import FakeCircularElevationBehavior,CircularRippleBehavior
 
 
-class HeaderPool(MDFloatLayout):
+class HeaderPool(FakeCircularElevationBehavior, MDFloatLayout):
     pass

@@ -8,11 +8,10 @@
         id: top_side
         size_hint_x: 1
         size_hint_y: .4
-        pos_hint: {"center_x":0.5, "center_y":0.8}
+        pos_hint: {"center_x":0.5, "center_y":0.9}
         ProfileInformationElement:
-
             MDFloatLayout:
-                size_hint_x: .4
+                size_hint_x: .35
                 size_hint_y: 1
                 pos_hint: {'center_x': 0.2,'center_y': 0.5}
                 ImageOfProfile:
@@ -20,13 +19,13 @@
 
             MDFloatLayout: 
                 id: other_infor_about_profile
-                size_hint_x: .6
+                size_hint_x: .65
                 size_hint_y: .95
                 pos_hint: {'center_x': 0.7,'center_y': 0.5}
 
                 ClickableLable:
                     id: Name_layout_rectangle
-                    size_hint_x: .96
+                    size_hint_x: .78
                     size_hint_y: .14
                     elevation: 2
                     radius: [4]
@@ -43,7 +42,7 @@
                 MDLabel:
                     id: Name
                     size_hint_x: .6
-                    pos_hint: { "center_x": .3 , "center_y": .90}
+                    pos_hint: { "center_x": .4 , "center_y": .90}
                     text: "my name"
                     font_size: "14sp"
                     halign: "left"
@@ -51,11 +50,11 @@
 
                 ClickableLable:
                     id: registration_date_layout_rectangle
-                    size_hint_x: .84
+                    size_hint_x: .78
                     size_hint_y: .14
                     elevation: 2
                     radius: [4]
-                    pos_hint: { "center_x": .4 , "center_y": .70}
+                    pos_hint: { "center_x": .4, "center_y": .70}
                     canvas.before:
                         Color: 
                             rgb: (238/255, 238/255, 238/255, 1)
@@ -68,7 +67,7 @@
                 MDLabel:
                     id: registration_date
                     size_hint_x: .6
-                    pos_hint: { "center_x": .36 , "center_y": .70}
+                    pos_hint: { "center_x": .4 , "center_y": .70}
                     text: "Date of registration"
                     font_size: "14sp"
                     halign: "left"
@@ -79,7 +78,7 @@
                     size_hint_y: .14
                     elevation: 2
                     radius: [4]
-                    pos_hint: { "center_x": .42 , "center_y": .50}
+                    pos_hint: { "center_x": 4 , "center_y": .50}
                     canvas.before:
                         Color: 
                             rgb: (238/255, 238/255, 238/255, 1)
@@ -100,7 +99,7 @@
 
                 ClickableLable:
                     id: hint_information_layout_rectangle
-                    size_hint_x: .8
+                    size_hint_x: .78
                     size_hint_y: .14
                     elevation: 2
                     radius: [4]                    
@@ -125,7 +124,7 @@
                 
                 ClickableLable:
                     id: hint_information_layout_rectangle
-                    size_hint_x: .96
+                    size_hint_x: .78
                     size_hint_y: .14
                     elevation: 2
                     radius: [4]
@@ -142,7 +141,7 @@
                 MDLabel:
                     id: hint_information
                     size_hint_x: .6
-                    pos_hint: { "center_x": .3 , "center_y": .10}
+                    pos_hint: { "center_x": .36 , "center_y": .10}
                     text: "smth info about me two"
                     font_size: "14sp"
                     halign: "left"
@@ -151,7 +150,7 @@
         id: profile_naviation
         size_hint_y: .07
         size_hint_x: .84
-        pos_hint: {"center_x": .5 , "center_y": .59}
+        pos_hint: {"center_x": .5 , "center_y": .69}
         ListWithMenuProfileElements:
         #     canvas.before: 
         #         Color:
@@ -166,7 +165,7 @@
         id: lagest_play_lists
         size_hint_y: .53
         size_hint_x: .5
-        pos_hint: {"center_x": .3 , "center_y": .27}
+        pos_hint: {"center_x": .3 , "center_y": .38}
         ListWithMenuProfileElements:
         #     canvas.before: 
         #         Color:
@@ -181,7 +180,7 @@
         id: friend_list
         size_hint_y: .53
         size_hint_x: .38
-        pos_hint: {"center_x": .77 , "center_y": .27}
+        pos_hint: {"center_x": .77 , "center_y": .38}
         ListWithMenuProfileElements:
             elevation: 2
             size_hint: .98, .98

@@ -6,3 +6,24 @@
     
     id: top_elements
     pos_hint:{'top':1}
+
+    canvas.before: 
+        Color:
+            rgba: hex("#928EA8")
+
+        RoundedRectangle:
+            radius: self.radius
+            pos: self.pos[0]-2, self.pos[1] -1
+            size: self.size[0]+4, self.size[1]+2
+    
+    MDFloatLayout:
+        size_hint: .95, .95
+        pos_hint: {"center_x:": .5 , "center_y": .5 }
+        BoxLayout:
+            pos_hint: {"center_x:": .5 , "center_y": .5 }
+
+            MDIconButton:
+                theme_text_color:"Custom"
+                pos_hint: {"center_x:": .5 , "center_y": .5 }
+                icon: "cog-outline"
+                user_font_size: "60sp"
