@@ -1,17 +1,18 @@
 #:import hex kivy.utils.get_color_from_hex
 
 <ProfileMenuPool>:
-    size_hint: .94, .1
+    size_hint: .98, .1
     pos_hint: {"center_x": .5, "center_y": .06}
     elevation: 3
-    radius: [10]
-    canvas:
+    radius: [4]
+    canvas.before: 
         Color:
-            rgba: hex("#ECFBFF")
+            rgba: hex("ffffff")
+
         RoundedRectangle:
-            size: self.size
-            pos: self.pos
-            radius: [16]
+            radius: self.radius
+            pos: self.pos[0], self.pos[1]
+            size: self.size[0], self.size[1]
 
     MDGridLayout:
         cols: 4

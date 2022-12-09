@@ -153,14 +153,14 @@
         size_hint_x: .84
         pos_hint: {"center_x": .5 , "center_y": .59}
         ListWithMenuProfileElements:
-            canvas.before: 
-                Color:
-                    rgba: hex("BCC8D5")
+        #     canvas.before: 
+        #         Color:
+        #             rgba: hex("BCC8D5")
 
-                RoundedRectangle:
-                    radius: self.radius
-                    pos: self.pos[0]-2, self.pos[1]
-                    size: self.size[0]+4, self.size[1]+2
+        #         RoundedRectangle:
+        #             radius: self.radius
+        #             pos: self.pos[0]-2, self.pos[1]
+        #             size: self.size[0]+4, self.size[1]+2
 
     MDFloatLayout:
         id: lagest_play_lists
@@ -168,14 +168,14 @@
         size_hint_x: .5
         pos_hint: {"center_x": .3 , "center_y": .27}
         ListWithMenuProfileElements:
-            canvas.before: 
-                Color:
-                    rgba: hex("#928EA8")
+        #     canvas.before: 
+        #         Color:
+        #             rgba: hex("#928EA8")
 
-                RoundedRectangle:
-                    radius: self.radius
-                    pos: self.pos[0]-2, self.pos[1] -1
-                    size: self.size[0]+4, self.size[1]+2
+        #         RoundedRectangle:
+        #             radius: self.radius
+        #             pos: self.pos[0]-2, self.pos[1] -1
+        #             size: self.size[0]+4, self.size[1]+2
 
     MDFloatLayout:
         id: friend_list
@@ -186,14 +186,14 @@
             elevation: 2
             size_hint: .98, .98
             pos_hint: {"center_x": .5 , "center_y": .5}
-            canvas.before: 
-                Color:
-                    rgba: hex("#928EA8")
+            # canvas.before: 
+            #     Color:
+            #         rgba: hex("#928EA8")
 
-                RoundedRectangle:
-                    radius: self.radius
-                    pos: self.pos[0]-0.5, self.pos[1] - 1
-                    size: self.size[0]+1, self.size[1] + 2
+            #     RoundedRectangle:
+            #         radius: self.radius
+            #         pos: self.pos[0]-0.5, self.pos[1] - 1
+            #         size: self.size[0]+1, self.size[1] + 2
 
         MDScrollView:
             pos_hint: {"center_x": .5 , "center_y": .5}
