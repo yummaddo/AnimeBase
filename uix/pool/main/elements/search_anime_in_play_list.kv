@@ -1,0 +1,16 @@
+<SearchAnimeInPlayList>
+    MDBoxLayout:
+        orientation: 'vertical'
+        spacing: dp(10)
+        padding: dp(20)
+
+        MDBoxLayout:
+            adaptive_height: True
+
+            MDIconButton:
+                icon: 'magnify'
+
+            MDTextField:
+                id: search_field
+                hint_text: 'Search icon'
+                on_text: root.set_list_md_icons(self.text, True)

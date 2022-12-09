@@ -1,9 +1,5 @@
-<RateDropDownMenu>:
-
-
-
-
-<ContainerAnimeElementOfList>:
+    
+<ContainerFindAnimeElementOfList>:
     pos_hint: {"right": .9}
     size_hint_x: .95
     size_hint_y: 1
@@ -53,20 +49,13 @@
 
             MDIconButton:
                 pos_hint: {"center_x": .6, "center_y": .5}
-                icon: "star-outline"
+                icon: "plus"
             
-            MDIconButton:
-                pos_hint: {"center_x": .7, "center_y": .5}
-                icon: "playlist-edit"
-
-            MDIconButton:
-                pos_hint: {"center_x": .8, "center_y": .5}
-                icon: "delete"
 
 
 
 
-<ColliderAnimeElementOfList>:
+<ColliderFindAnimeElementOfList>:
     orientation: 'horizontal'
     md_bg_color: 1,1,1,1
     size_hint_y: .95
@@ -82,13 +71,13 @@
             pos: self.pos
             radius: [22]
 
-    ContainerAnimeElementOfList:
+    ContainerFindAnimeElementOfList:
         id: container
 
-<AnimeElementOfList>
+<FindAnimeElementOfList>
     img_sourse: self.img_sourse
     size_y: "10dp"
     size_hint_y: None
-    ColliderAnimeElementOfList:
+    ColliderFindAnimeElementOfList:
         img_sourse: self.parent.img_sourse
         
