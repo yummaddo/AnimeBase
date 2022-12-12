@@ -11,22 +11,21 @@ sys.path.append(main_dir)
 
 from header_pool import HeaderPool
 from menu_pool import MenuPool
-from main_register_pool import MainRegisterPool
+from main_register_signup_pool import MainRegisterSignupPool
 
 
-class AbstructRegisterScreen(ABC):
+class AbstructSignupScreen(ABC):
     pass
         
 
-class RegisterScreen(Screen):
-    anim_Passwordlay   = Animation(pos_hint={"center_x": .5}, duration=1.1,t = "in_out_quad") 
+class SignupScreen(Screen):
+    anim_Passwordlay   = Animation(pos_hint={"center_x": .5}, duration=1,t = "in_out_quad") 
     anim_EmailLay      = Animation(pos_hint={"center_x": .5}, duration=1.1,t = "in_out_quad")
-    anim_button_sign   = Animation(pos_hint={"center_x": .72}, duration=1.2,t = "out_circ")
-    anim_button_login  = Animation(pos_hint={"center_x": .29}, duration=1.2,t = "out_circ") 
-    anim_images        = Animation(pos_hint={'center_y': .6}, duration=1.4,t = "in_out_quad")
-    anim_google_lay    = Animation(pos_hint={'center_y': .1}, duration=1.2,t = "in_out_quad")
-    
-    
+    anim_NameLay      = Animation(pos_hint={"center_x": .5}, duration=0.9,t = "in_out_quad")
+    anim_button_register  = Animation(pos_hint={"center_y": 0.17}, duration=1,t = "out_cubic") 
+    anim_button_login  = Animation(pos_hint={"center_y": 0.17}, duration=0.9,t = "out_cubic") 
+    anim_images        = Animation(pos_hint={'center_y': .6}, duration=1.3,t = "in_out_quad")
+   
     
     def anim_openning_the_screen_img(self, widget):
         self.anim_images.start(widget.ids.images_layout)
@@ -35,14 +34,10 @@ class RegisterScreen(Screen):
     def anim_openning_the_screen_text_input(self, widget):
         self.anim_EmailLay.start(widget.ids.EmailLay)
         self.anim_Passwordlay.start(widget.ids.PasswordLay)
-    
-    
-    def anim_openning_the_screen_google_lay(self, widget):
-        self.anim_google_lay.start(widget.ids.GoogleLay)
-
-
-    def anim_openning_the_screen_buttons(self, widget):
-        self.anim_button_sign.start(widget.ids.SIGNUPButton)
-        self.anim_button_login.start(widget.ids.LOGINButton)
+        self.anim_NameLay.start(widget.ids.NameLay)
         
+    
+    def anim_openning_the_screen_buttons(self, widget):
+        self.anim_button_register.start(widget.ids.REGISTERButton)
+        self.anim_button_login.start(widget.ids.LOGINButton)
         

@@ -13,6 +13,8 @@ from programclass.screens.other_profile_screen import OtherProfileScreen
 from programclass.screens.prefare_screen import PrefareScreen
 from programclass.screens.profile_screen import ProfileScreen
 from programclass.screens.register_screen import RegisterScreen
+from programclass.screens.signup_screen import SignupScreen
+
 
 
 import os
@@ -66,6 +68,7 @@ class Main(MDApp):
                     Builder.load_file(file_path)
         
         return self.__init_secrens()
+    
     # in screen manager
     def swap_screen(self, index_of_menu):        
         if index_of_menu != self.curent_index_of_menu:
@@ -74,17 +77,18 @@ class Main(MDApp):
             elif index_of_menu < self.curent_index_of_menu:
                 self.root.switch_to(self.menu_screen_objects[index_of_menu], direction='left')
             self.curent_index_of_menu = index_of_menu
-        
-        
+    
+    
+    def register_process(self):
+        pass
+    
         
     def confirmation_process(self):
         self.root.switch_to(self.root.get_screen("profile"), direction='up')
 
 
-
-
     def __init_secrens(self):
-        self.screens = ['anime_list', 'find_anime', 'find_people', 'other_profile', 'prefare_screen', 'profile','register']
+        self.screens = ['anime_list', 'find_anime', 'find_people', 'other_profile', 'prefare_screen', 'profile','register','signup']
         self.screens_ojects = [
             ProfileScreen(name=self.screens[5]),
             AnimeListScreen(name=self.screens[0]),
@@ -92,7 +96,8 @@ class Main(MDApp):
             PrefareScreen(name=self.screens[4]),
             FindPeopleScreen(name=self.screens[2]),
             OtherProfileScreen(name=self.screens[3]),
-            RegisterScreen(name=self.screens[6])
+            RegisterScreen(name=self.screens[6]),
+            SignupScreen(name=self.screens[7])
         ]
         self.menu_screen = [
             self.screens[5],
@@ -110,7 +115,7 @@ class Main(MDApp):
         for element_screen in self.screens_ojects:
             self.sm.add_widget(element_screen)
             
-        self.sm.current = self.screens[-1]
+        self.sm.current = self.screens[-2]
         return self.sm
         
 

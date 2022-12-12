@@ -1,0 +1,13 @@
+#:import hex kivy.utils.get_color_from_hex
+
+<SignupScreen>:
+    name:'singnup'
+    on_enter:
+        self.anim_openning_the_screen_img(main_register_pool_zone)
+        self.anim_openning_the_screen_text_input(main_register_pool_zone)
+        self.anim_openning_the_screen_buttons(main_register_pool_zone)
+
+        
+    MainRegisterSignupPool:
+        id:main_register_pool_zone
+
