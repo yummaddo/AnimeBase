@@ -95,7 +95,7 @@
             background_color: 0,0,0,0
             color: 1,1,1,1
             on_release:
-                app.register_process()
+                app.register_process(self.parent)
             canvas.before: 
                 Color:
                     rgb: 11/255, 205/255, 215/255

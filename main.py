@@ -5,6 +5,8 @@ from kivy.uix.screenmanager import Screen, ScreenManager
 
 from kivy.core.window import Window
 
+from database.connect import DataRepository,Person
+
 
 from programclass.screens.anime_list_screen import AnimeListScreen
 from programclass.screens.find_anime_screen import FindAnimeScreen
@@ -26,7 +28,8 @@ Window.left = 500
 
 
 class Main(MDApp):
-
+    curent_element = None
+    repository = DataRepository()    
     curent_index_of_menu = 0
     sm = ScreenManager()
 
@@ -79,12 +82,106 @@ class Main(MDApp):
             self.curent_index_of_menu = index_of_menu
     
     
-    def register_process(self):
-        pass 
-    
+    def is_empty_register_form(self, widget_pool):
+        error  = 0
+        types = {1:0,2:0,3:0}
+        try:
+            if widget_pool.children[-2].children[-1].text == "":
+                error = 1
+                types[1] = 1
+                
+            if widget_pool.children[-3].children[-1].text == "":
+                error = 1
+                types[2] = 1
+                
+            if widget_pool.children[-4].children[-1].text == "":
+                error = 1
+                types[3] = 1
+                
+            
+        except:
+            error  = -1
+        return types, error
+
+
+    def register_process(self, widget_pool):
+        curent_person = None
+        data_of_persons = self.repository.get_list_of_person()
+        self.repository.response_key = []
+        types, error = self.is_empty_register_form(widget_pool)
+        if error == 0:
+            curent_person = Person(
+                {
+                    "name"     : widget_pool.children[-2].children[-1].text,
+                    "password" : widget_pool.children[-3].children[-1].text,
+                    "email"    : widget_pool.children[-4].children[-1].text,
+                    "playlists": ""
+                }    
+            )
+            for element in data_of_persons:
+                if curent_person.register_equivalent(element) == 0:
+                    continue
+                    
+                else:
+                    error = 1
+                    break
+                    
+        if error == 0:
+            self.repository.write_person(curent_person)
+            self.root.switch_to(self.screens_ojects[-2], direction='left')
         
-    def confirmation_process(self):
-        self.root.switch_to(self.root.get_screen("profile"), direction='up')
+        elif error == 1:
+            pass
+
+    def is_empty_register_signup_form(self, widget_pool):
+        error  = 0
+        types = {1:0,2:0}
+        try:
+            if widget_pool.children[-2].children[-1].text == "":
+                error = 1
+                types[1] = 1
+            if widget_pool.children[-3].children[-1].text == "":
+                error = 2
+                types[1] = 1
+        except:
+            error  = -1
+            
+        
+        return types, error
+        
+
+            
+
+    def confirmation_process(self,widget_pool):
+        curent_person = None
+        data_of_persons = self.repository.get_list_of_person()
+        types, error = self.is_empty_register_signup_form(widget_pool)
+        
+        if error == 0:
+            curent_person = Person(
+                {
+                    "name"     : widget_pool.children[-2].children[-1].text,
+                    "password" : widget_pool.children[-3].children[-1].text,
+                    "email"    : widget_pool.children[-2].children[-1].text,
+                    "playlists": ""
+                }    
+            )
+            print(curent_person.get_all_values())
+            for index, element in enumerate(data_of_persons):
+                if curent_person.signup_equivalent(element) == 0:
+                    error = 0
+                    
+                    print(element.get_all_values())
+                    self.repository.response_curent_user_id = [element, self.repository.response_keys[index] ]
+                    print(self.repository.response_curent_user_id)
+                    self.repository.response_keys = []
+                    break
+                    
+                else:
+                    error = 1
+        
+        if error == 0:
+            self.root.switch_to(self.root.get_screen("profile"), direction='up')
 
 
     def __init_secrens(self):
@@ -120,4 +217,5 @@ class Main(MDApp):
         
 
 if __name__ == '__main__':
+
     Main().run()
