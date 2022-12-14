@@ -80,7 +80,7 @@ class Main(MDApp):
     
     
     def register_process(self):
-        pass
+        pass 
     
         
     def confirmation_process(self):
