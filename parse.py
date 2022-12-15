@@ -95,12 +95,12 @@ class Parser:
                 time.sleep(0.1)
                 self.__update_user_agent()
                 time_to_load = time.time();
+                link = self.link + f"page/{page_number}/"
                 
                 print('@Log                        ::proxy :{} '.format(self.proxy))
                 print('@Log                        ::user_agent :{} '.format(self.header))
-                print('#started parsing main domen ::link :{}'.format(self.link))
-                link = self.link + f"page/{page_number}/"
-                execute_answer = requests.get(self.link, headers=self.header)
+                print('#started parsing main domen ::link :{}'.format(link))
+                execute_answer = requests.get(link, headers=self.header)
                 time_to_load_page = time.time() - time_to_load
                 self.data_dump.write_page(f"pages/page_namber_{page_number}.html", execute_answer.text)
                 time_to_write_page =  time.time() - time_to_load_page - time_to_load
@@ -119,19 +119,16 @@ class Parser:
                 # execute_answer = requests.get(self.link, headers=self.header)
             rq = self.data_dump.load_page(f"pages/page_namber_{page_number}.html")
             soup = BeautifulSoup(rq, 'lxml')
-            div_block_with_table = soup.find( "ul",  {"class": "raspis raspis_fixed"})
-            res_text = [item.text for item in div_block_with_table.find_all("li")]
-            res_link = [item.find("a").get('href') for item in div_block_with_table.find_all("li")]
+            div_block_with_table = soup.find_all( "div",  {"class": "shortstoryHead"})
+            for item in div_block_with_table:
+                self.name_of_anime_pages.append(item.find("h2").text)
                 
-            self.name_of_anime_pages.extend(res_text)
-            self.urls_of_anime_pages.extend(res_link)
-                
+                self.urls_of_anime_pages.append(item.find("a").get('href'))
+
                 # self.data_dump.write_page(f"pages/page_namber_{page_number}.html", execute_answer.text)
-            if page_number % 30 == 0:
-                pprint( self.name_of_anime_pages )
-                pprint( self.urls_of_anime_pages )
 
         time_to_load_page = time.time() - time_to_load    
+        pprint(self.urls_of_anime_pages)
         print(f"@Time : get all links and anime name : {time_to_load_page} ");
 
         if (input("Re-parse all other anime pages: ") == "1"):
@@ -146,11 +143,12 @@ class Parser:
                 print('@Log                        ::user_agent :{} '.format(self.header))
                 execute_answer = requests.get(url, headers=self.header)
                 time_to_load_page = time.time() - time_to_load
-                self.data_dump.write_page(url, execute_answer.text)
+                self.data_dump.write_page(f"animes/anime_with_index_{index}.html", execute_answer.text)
                 time_to_write_page =  time.time() - time_to_load_page - time_to_load
                 print(f"@Time : load anime [{index}] [{ self.name_of_anime_pages[index] }] {time_to_load_page} : heshed page time {time_to_write_page}");
             
         else:
+            
             pass
             
 
