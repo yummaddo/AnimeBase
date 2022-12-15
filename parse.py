@@ -1,7 +1,7 @@
 
 from bs4 import BeautifulSoup
 from random import choice
-from pprintpp import pprint
+from pprint import pprint
 from multiprocessing import Pool
 from fake_useragent import UserAgent
 import os,sys,time,requests,json
@@ -32,12 +32,16 @@ class Parser:
         self.data_dump = Data()
         self.header = {}
         self.max_number = 0
+        self.name_of_anime_pages = []
+        self.urls_of_anime_pages = []
+        
+        
         print('!starting                   :: updating main page ')
         self.pars_main_page(main_link)
         print('!starting                   :: updating all page with anime')
         self.__pars_all_pages()
-
-
+        print('!starting                   :: updating the url of links on anime')
+        self.__pars_all_anime()
 
     def pars_main_page(self,link):
         if (input("Re-parse main page: ") == "1"):
@@ -48,11 +52,12 @@ class Parser:
             print('@Log                        ::user_agent :{} '.format(self.header))
             print('#started parsing main domen ::link :{}'.format(self.link))
             execute_answer = requests.get(self.link, headers=self.header)
+            pprint(execute_answer)
             time_to_load_page = time.time() - time_to_load
             self.data_dump.write_page("main_page.html", execute_answer.text)
             time_to_write_page =  time.time() - time_to_load_page - time_to_load
             print(f"@Time : load page {time_to_load_page} : heshed page time {time_to_write_page}");
-            self.__start_parse("request", execute_answer.text)
+            self.__start_parse("request", execute_answer)
             
         else:
             self.__start_parse("local")
@@ -104,7 +109,49 @@ class Parser:
         
         else:
             pass
+        
+    def __pars_all_anime(self):
+        time_to_load = time.time();
+            
+        for page_number in range(1, self.max_number+1):
+            time.sleep(0.01)
+            self.__update_user_agent()
+                # execute_answer = requests.get(self.link, headers=self.header)
+            rq = self.data_dump.load_page(f"pages/page_namber_{page_number}.html")
+            soup = BeautifulSoup(rq, 'lxml')
+            div_block_with_table = soup.find( "ul",  {"class": "raspis raspis_fixed"})
+            res_text = [item.text for item in div_block_with_table.find_all("li")]
+            res_link = [item.find("a").get('href') for item in div_block_with_table.find_all("li")]
+                
+            self.name_of_anime_pages.extend(res_text)
+            self.urls_of_anime_pages.extend(res_link)
+                
+                # self.data_dump.write_page(f"pages/page_namber_{page_number}.html", execute_answer.text)
+            if page_number % 30 == 0:
+                pprint( self.name_of_anime_pages )
+                pprint( self.urls_of_anime_pages )
 
+        time_to_load_page = time.time() - time_to_load    
+        print(f"@Time : get all links and anime name : {time_to_load_page} ");
+
+        if (input("Re-parse all other anime pages: ") == "1"):
+
+            for index, url in enumerate(self.urls_of_anime_pages):
+                
+            
+                time_to_load = time.time();
+                time.sleep(0.1)
+                self.__update_user_agent()
+                print('\n@Log                        ::proxy :{} '.format(self.proxy))
+                print('@Log                        ::user_agent :{} '.format(self.header))
+                execute_answer = requests.get(url, headers=self.header)
+                time_to_load_page = time.time() - time_to_load
+                self.data_dump.write_page(url, execute_answer.text)
+                time_to_write_page =  time.time() - time_to_load_page - time_to_load
+                print(f"@Time : load anime [{index}] [{ self.name_of_anime_pages[index] }] {time_to_load_page} : heshed page time {time_to_write_page}");
+            
+        else:
+            pass
             
 
     def __update_user_agent(self):
