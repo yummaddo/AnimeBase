@@ -4,7 +4,7 @@ from random import choice
 from pprint import pprint
 from multiprocessing import Pool
 from fake_useragent import UserAgent
-import os,sys,time,requests,json
+import os,sys,time,requests,json,re
 
 #link = 'https://allegro.pl/kategoria/turbosprezarki-kompletne-turbosprezarki-255509'
 link = 'https://animevost.org/'
@@ -46,13 +46,17 @@ class Parser:
         
         
         print('!starting                   :: updating main page ')
-        # self.pars_main_page(main_link)
+        self.pars_main_page(main_link)
         print('!starting                   :: updating all page with anime')
-        # self.__pars_all_pages()
+        self.__pars_all_pages()
         print('!starting                   :: updating the url of links on anime')
         self.__pars_all_anime()
         print('!starting                   :: updating the media data')
         self.__pars_all_media()
+        
+        print('!COMPLITED LOAD             :: updating the media data')
+        self.__all_dumping()
+        
         
 
     def pars_main_page(self,link):
@@ -150,7 +154,6 @@ class Parser:
                   
             with open(os.path.join(os.path.dirname(sys.argv[0]), "data/" + "urls.txt"), 'r', encoding="UTF-8") as main_file:
                 self.urls_of_anime_pages = main_file.read().split('\n')
-                pprint(self.urls_of_anime_pages)
         
         if (input("Re-parse all other anime pages (2800+ pages) : ") == "1"):
 
@@ -199,7 +202,6 @@ class Parser:
                               
             with open(os.path.join(os.path.dirname(sys.argv[0]), "data/" + "images_urls.txt"), 'r', encoding="UTF-8") as main_file:
                 self.urls_of_anime_media = main_file.read().split('\n')
-                pprint(self.urls_of_anime_media)
             
             
         if (input("Re-parse all media: ") == "1"):
@@ -226,6 +228,42 @@ class Parser:
     def __update_user_agent(self):
         self.header = {'User-Agent': str(UserAgent())}
 
+
+    def __all_dumping(self):
+        print("\n\n GET the dump by index\n")
+        index = input("WRITE THE INDEX OF ANIME : ")
+        
+        rq = self.data_dump.load_page("animes/anime_with_index_" + index + ".html")
+        soup = BeautifulSoup(rq, 'lxml')
+        div_content = soup.find("div", { "class" : "shortstoryContent"} )
+        div_head = soup.find("div", { "class" : "shortstoryHead"} )
+        all_p_elements = div_content.find_all("p") 
+        all_p_elements_main_text = [all_p_elements[i].text for i in range(4)]
+        first_ul_with_rate = div_content.find("ul")
+        title_of_anime = div_head.find("h1").text
+        all_p_elements_main_text.append(title_of_anime)
+        avarage_rate = first_ul_with_rate.find_all("li")[0]
+        all_p_elements_main_text[4] = all_p_elements_main_text[4].replace("  ","")
+        all_p_elements_main_text[4] = all_p_elements_main_text[4].replace("\n","")
+        
+        names = all_p_elements_main_text[4].split(" / ")
+        exeption = r"\[[\S|\s]+\]$"        
+        all_p_elements_main_text[4] = names[0]
+        element_of_name =  re.findall(exeption,names[1])
+        element_of_name[0] = element_of_name[0].replace("[","")
+        element_of_name[0] = element_of_name[0].replace("]","")
+        
+        
+        if len(element_of_name) > 0:
+            names[1] = names[1].replace(" " + element_of_name[0], "")
+            all_p_elements_main_text.append(names[1])
+            all_p_elements_main_text.append(element_of_name[0])
+            
+        else:
+            all_p_elements_main_text.append(names[1])
+            
+        all_p_elements_main_text.append(avarage_rate.text)
+        pprint(all_p_elements_main_text)
 
 if __name__ == '__main__':
     Parser(link)
