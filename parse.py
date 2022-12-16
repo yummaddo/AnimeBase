@@ -20,6 +20,11 @@ class Data:
     def write_page(self, name_file,req=""):
         with open(os.path.join(os.path.dirname(sys.argv[0]), "data/"+name_file), 'w', encoding="UTF-8") as main_file:
             main_file.write(req)
+
+    def write_image(self, name_file,req=""):
+        with open(os.path.join(os.path.dirname(sys.argv[0]), "data/"+name_file), 'wb') as main_file:
+            main_file.write(req.content)
+            
     def load_page(self, name_file):
         with open(os.path.join(os.path.dirname(sys.argv[0]), "data/"+name_file), 'r', encoding="UTF-8") as main_file:
             return main_file.read()    
@@ -199,18 +204,20 @@ class Parser:
             
         if (input("Re-parse all media: ") == "1"):
 
-            for index, url in enumerate(self.urls_of_anime_pages):
-                
-                # time_to_load = time.time();
-                # time.sleep(0.1)
-                self.__update_user_agent()
-                print('\n@Log                        ::proxy :{} '.format(self.proxy))
-                print('@Log                        ::user_agent :{} '.format(self.header))
-                # execute_answer = requests.get(url, headers=self.header)
-                time_to_load_page = time.time() - time_to_load
-                # self.data_dump.write_page(f"animes/anime_with_index_{index}.html", execute_answer.text)
-                time_to_write_page =  time.time() - time_to_load_page - time_to_load
-                # print(f"@Time : load anime [{index}] [{ self.name_of_anime_pages[index] }] {time_to_load_page} : heshed page time {time_to_write_page}");
+            for index, url in enumerate(self.urls_of_anime_media):
+                if url != '':
+                    time_to_load = time.time();
+                    time.sleep(0.0003)
+                    self.__update_user_agent()
+                    print('\n@Log                        ::proxy :{} '.format(self.proxy))
+                    print('@Log                        ::user_agent :{} '.format(self.header))
+                    print('@Log                        ::load image :{} '.format(url))
+                    execute_answer = requests.get(url, headers=self.header)
+                    time_to_load_page = time.time() - time_to_load
+                    self.data_dump.write_image(f"media/image_for_anime_with_index_{index}.jpg", execute_answer)
+                    time_to_write_page =  time.time() - time_to_load_page - time_to_load
+                    print('@Log                        ::saved into :{} '.format( f"data/media/image_for_anime_with_index_{index}.jpg"))
+                    print(f"@Time : load img [{index}] [{ self.urls_of_anime_media[index] }] {time_to_load_page} : heshed img time {time_to_write_page}");
             
         else:
             pass
