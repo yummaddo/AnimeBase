@@ -8,6 +8,8 @@ import os,sys,time,requests,json
 
 #link = 'https://allegro.pl/kategoria/turbosprezarki-kompletne-turbosprezarki-255509'
 link = 'https://animevost.org/'
+link_img = 'https://animevost.org'
+
 pre_domen = 'page/0/'
 
 
@@ -34,14 +36,19 @@ class Parser:
         self.max_number = 0
         self.name_of_anime_pages = []
         self.urls_of_anime_pages = []
+        self.urls_of_anime_media = []
+        
         
         
         print('!starting                   :: updating main page ')
-        self.pars_main_page(main_link)
+        # self.pars_main_page(main_link)
         print('!starting                   :: updating all page with anime')
-        self.__pars_all_pages()
+        # self.__pars_all_pages()
         print('!starting                   :: updating the url of links on anime')
         self.__pars_all_anime()
+        print('!starting                   :: updating the media data')
+        self.__pars_all_media()
+        
 
     def pars_main_page(self,link):
         if (input("Re-parse main page: ") == "1"):
@@ -88,9 +95,10 @@ class Parser:
         all_links = tr_with_numbers.find_all("a")
         self.max_number = int(all_links[-1].text)
         print(f"@Log page with anime on site [{self.max_number}] ")
-        
+
+  
     def __pars_all_pages(self):
-        if (input("Re-parse all other page: ") == "1"):
+        if (input("Re-parse all other page (280+ pages): ") == "1"):
             for page_number in range(1, self.max_number+1):
                 time.sleep(0.1)
                 self.__update_user_agent()
@@ -105,39 +113,46 @@ class Parser:
                 self.data_dump.write_page(f"pages/page_namber_{page_number}.html", execute_answer.text)
                 time_to_write_page =  time.time() - time_to_load_page - time_to_load
                 print(f"@Time : load page number [{page_number}] {time_to_load_page} : heshed page time {time_to_write_page}");
-                
-        
+                        
         else:
             pass
-        
+
+
     def __pars_all_anime(self):
-        time_to_load = time.time();
-            
-        for page_number in range(1, self.max_number+1):
-            time.sleep(0.01)
-            self.__update_user_agent()
-                # execute_answer = requests.get(self.link, headers=self.header)
-            rq = self.data_dump.load_page(f"pages/page_namber_{page_number}.html")
-            soup = BeautifulSoup(rq, 'lxml')
-            div_block_with_table = soup.find_all( "div",  {"class": "shortstoryHead"})
-            for item in div_block_with_table:
-                self.name_of_anime_pages.append(item.find("h2").text)
+        if (input("Re-parse all anime urls: ") == "1"):
+            time_to_load = time.time();
                 
-                self.urls_of_anime_pages.append(item.find("a").get('href'))
+            for page_number in range(1, self.max_number+1):
+                time.sleep(0.01)
+                self.__update_user_agent()
+                    # execute_answer = requests.get(self.link, headers=self.header)
+                rq = self.data_dump.load_page(f"pages/page_namber_{page_number}.html")
+                soup = BeautifulSoup(rq, 'lxml')
+                div_block_with_table = soup.find_all( "div",  {"class": "shortstoryHead"})
+                for item in div_block_with_table:
+                    self.name_of_anime_pages.append(item.find("h2").text)
+                    
+                    self.urls_of_anime_pages.append(item.find("a").get('href'))
 
-                # self.data_dump.write_page(f"pages/page_namber_{page_number}.html", execute_answer.text)
-
-        time_to_load_page = time.time() - time_to_load    
-        pprint(self.urls_of_anime_pages)
-        print(f"@Time : get all links and anime name : {time_to_load_page} ");
-
-        if (input("Re-parse all other anime pages: ") == "1"):
+            with open(os.path.join(os.path.dirname(sys.argv[0]), "data/" + "urls.txt"), 'w', encoding="UTF-8") as main_file:
+                for item in self.urls_of_anime_pages:
+                    main_file.write(item + "\n")
+            
+            time_to_load_page = time.time() - time_to_load 
+            print(f"@Time : get all links and anime name : {time_to_load_page} ");
+            
+        else: 
+                  
+            with open(os.path.join(os.path.dirname(sys.argv[0]), "data/" + "urls.txt"), 'r', encoding="UTF-8") as main_file:
+                self.urls_of_anime_pages = main_file.read().split('\n')
+                pprint(self.urls_of_anime_pages)
+        
+        if (input("Re-parse all other anime pages (2800+ pages) : ") == "1"):
 
             for index, url in enumerate(self.urls_of_anime_pages):
                 
-            
                 time_to_load = time.time();
-                time.sleep(0.1)
+                time.sleep(0.01)
                 self.__update_user_agent()
                 print('\n@Log                        ::proxy :{} '.format(self.proxy))
                 print('@Log                        ::user_agent :{} '.format(self.header))
@@ -148,9 +163,58 @@ class Parser:
                 print(f"@Time : load anime [{index}] [{ self.name_of_anime_pages[index] }] {time_to_load_page} : heshed page time {time_to_write_page}");
             
         else:
+            pass     
             
+            
+    def __pars_all_media(self):
+        time_to_load = time.time();
+        if (input("Re-parse all urls of media : ") == "1"):
+            for url_index in range(len(self.urls_of_anime_pages)):
+                time.sleep(0.0003)
+                self.__update_user_agent()
+                    # execute_answer = requests.get(self.link, headers=self.header)
+                try:
+                    rq = self.data_dump.load_page(f"animes/anime_with_index_{url_index}.html")
+                    soup = BeautifulSoup(rq, 'lxml')
+                    div_block_with_table = soup.find( "div",  {"class": "shortstoryContent"})
+                    div_block_with_table = div_block_with_table.find_all("div")[0]
+                    local_link = div_block_with_table.find("img")['src']
+                    img_link = link_img + local_link
+                    self.urls_of_anime_media.append(img_link)
+                except FileNotFoundError:
+                    print(f"@ERROR :  No such file or directory: animes/anime_with_index_{url_index}.html need upload the data")
+
+                with open(os.path.join(os.path.dirname(sys.argv[0]), "data/" + "images_urls.txt"), 'w', encoding="UTF-8") as main_file:
+                    for item in self.urls_of_anime_media:
+                        main_file.write(item + "\n")
+
+            time_to_load_page = time.time() - time_to_load
+            print(f"@Time : get all links and anime name : {time_to_load_page} ");
+        else:
+                              
+            with open(os.path.join(os.path.dirname(sys.argv[0]), "data/" + "images_urls.txt"), 'r', encoding="UTF-8") as main_file:
+                self.urls_of_anime_media = main_file.read().split('\n')
+                pprint(self.urls_of_anime_media)
+            
+            
+        if (input("Re-parse all media: ") == "1"):
+
+            for index, url in enumerate(self.urls_of_anime_pages):
+                
+                # time_to_load = time.time();
+                # time.sleep(0.1)
+                self.__update_user_agent()
+                print('\n@Log                        ::proxy :{} '.format(self.proxy))
+                print('@Log                        ::user_agent :{} '.format(self.header))
+                # execute_answer = requests.get(url, headers=self.header)
+                time_to_load_page = time.time() - time_to_load
+                # self.data_dump.write_page(f"animes/anime_with_index_{index}.html", execute_answer.text)
+                time_to_write_page =  time.time() - time_to_load_page - time_to_load
+                # print(f"@Time : load anime [{index}] [{ self.name_of_anime_pages[index] }] {time_to_load_page} : heshed page time {time_to_write_page}");
+            
+        else:
             pass
-            
+
 
     def __update_user_agent(self):
         self.header = {'User-Agent': str(UserAgent())}
