@@ -6,6 +6,9 @@ from multiprocessing import Pool
 from fake_useragent import UserAgent
 import os,sys,time,requests,json,re
 
+from database.connect import DataRepository,Person
+
+
 #link = 'https://allegro.pl/kategoria/turbosprezarki-kompletne-turbosprezarki-255509'
 link = 'https://animevost.org/'
 link_img = 'https://animevost.org'
@@ -55,7 +58,9 @@ class Parser:
         self.__pars_all_media()
         
         print('!COMPLITED LOAD             :: updating the media data')
-        self.__all_dumping()
+        print("\n\n GET the dump by index\n")        
+        for i in range(1, self.max_number+1):
+            self.__all_dumping(i)
         
         
 
@@ -229,11 +234,8 @@ class Parser:
         self.header = {'User-Agent': str(UserAgent())}
 
 
-    def __all_dumping(self):
-        print("\n\n GET the dump by index\n")
-        index = input("WRITE THE INDEX OF ANIME : ")
-        
-        rq = self.data_dump.load_page("animes/anime_with_index_" + index + ".html")
+    def __all_dumping(self,index):
+        rq = self.data_dump.load_page("animes/anime_with_index_" + str(index) + ".html")
         soup = BeautifulSoup(rq, 'lxml')
         div_content = soup.find("div", { "class" : "shortstoryContent"} )
         div_head = soup.find("div", { "class" : "shortstoryHead"} )
@@ -263,7 +265,12 @@ class Parser:
             all_p_elements_main_text.append(names[1])
             
         all_p_elements_main_text.append(avarage_rate.text)
+        all_p_elements_main_text = [item.split(":")[1] for item in all_p_elements_main_text if ':' in item]
+        all_p_elements_main_text = [item.split("[")[0] for item in all_p_elements_main_text]
+        all_p_elements_main_text.append(index)
+        
         pprint(all_p_elements_main_text)
+
 
 if __name__ == '__main__':
     Parser(link)

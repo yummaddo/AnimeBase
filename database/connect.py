@@ -3,7 +3,6 @@ from abc import abstractclassmethod, ABC
 from pprint import pprint
 
 
-# abstractions
 class AbstructPreson(ABC):
     def __init__(self, data):
         self._dump = data
@@ -23,14 +22,13 @@ class AbstructPreson(ABC):
         pass
     
     @abstractclassmethod
-    def register_equivalent(self, person) -> int:
+    def register_equivalent(self, person):
         pass
     
     @abstractclassmethod
-    def signup_equivalent(self,person) -> int:
+    def signup_equivalent(self,person):
         pass
 
-#realizations
 class Person(AbstructPreson):
     def __init__(self, data):
         super().__init__(data)
@@ -67,6 +65,45 @@ class Person(AbstructPreson):
             return 0
 
 
+class AbstractAnime(ABC):
+    def __init__(self,realise_data, style, going_type, number_of_episodes, ru_title, en_title, rate, index ):    
+        self.number_of_episodes = number_of_episodes
+        self.realise_data = realise_data
+        self.going_type = going_type
+        self.ru_title = ru_title
+        self.en_title = en_title
+        self.index = index
+        self.style = style
+        self.rate = rate
+        self.dump = [realise_data,style,going_type,number_of_episodes,ru_title,en_title,rate,index]
+    
+    @abstractclassmethod
+    def get_all_values(self):
+        pass
+        
+    @abstractclassmethod
+    def push_dump(self, data):
+        pass
+
+    @abstractclassmethod
+    def set_parameter(self, parameter_name, paramerter_value ):
+        pass
+    
+    @abstractclassmethod
+    def register_equivalent(self, anime):
+        pass
+    
+    @abstractclassmethod
+    def signup_equivalent(self,anime):
+        pass   
+
+
+class Anime(AbstructPreson):
+    def __init__(self,realise_data, style, going_type, number_of_episodes, ru_title, en_title, rate, index ):
+        super().__init__(realise_data, style, going_type, number_of_episodes, ru_title, en_title, rate, index)    
+
+
+
 class AbstructRepository(ABC):
     def __init__(self, tocken : str=""):
         self.tocken = tocken
@@ -80,8 +117,14 @@ class AbstructRepository(ABC):
         pass
 
 
+    
+
+
+
 class DataRepository(AbstructRepository):    
     default_user_directory = "\\Users"
+    default_anime_directory = "\\Animes"
+    
     response_keys = []
     response_curent_user_id = ""
     
@@ -91,8 +134,10 @@ class DataRepository(AbstructRepository):
         self.base = firebase.FirebaseApplication(tocken, None)
         self.default_directory_name = tocken.split(".")[0].split('//')[1]
 
+
     def write_person(self, person):
         self.base.post(self.default_directory_name + self.default_user_directory, person.get_all_values())
+
         
     def get_list_of_person(self):
         self.response = self.base.get(self.default_directory_name + self.default_user_directory, '')
